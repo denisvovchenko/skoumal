@@ -14,7 +14,7 @@ const gulp = require('gulp'),
 function browserSync(done) {
   browsersync.init({
     server: {
-      baseDir: './dist'
+      baseDir: './src'
     },
 
     port: 3000
@@ -57,7 +57,8 @@ function images() {
 function html() {
   return gulp
     .src('./src/index.html')
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/'))
+    .pipe(browsersync.stream());
 }
 
 function css() {
@@ -65,10 +66,10 @@ function css() {
     .src('./src/scss/**/*.scss')
     .pipe(plumber())
     .pipe(sass({ outputStyle: 'expanded' }))
-    .pipe(gulp.dest('./dist/css/'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(postcss([autoprefixer(), cssnano()]))
-    .pipe(gulp.dest('./dist/css/'))
+    .pipe(gulp.dest('./src/css/'))
+    // .pipe(rename({ suffix: '.min' }))
+    // .pipe(postcss([autoprefixer(), cssnano()]))
+    // .pipe(gulp.dest('./dist/css/'))
     .pipe(browsersync.stream());
 }
 
@@ -86,15 +87,15 @@ function scripts() {
     gulp
       .src(['./src/js/**/*'])
       .pipe(plumber())
-      .pipe(gulp.dest('./dist/js/'))
+      .pipe(gulp.dest('./src/js/'))
       .pipe(browsersync.stream())
   );
 }
 
 function watchFiles() {
+  gulp.watch('./src/index.html', html);
   gulp.watch('./src/scss/**/*', css);
   gulp.watch('./src/js/**/*', gulp.series(scriptsLint, scripts));
-  gulp.watch(['./src/index.html'], browserSyncReload);
   gulp.watch('./src/img/**/*', images);
 }
 
