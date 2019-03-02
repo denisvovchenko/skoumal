@@ -1,15 +1,26 @@
 .page {
+<<<<<<< HEAD
   height: 1002px;
   font-family: "Roboto", "Arial", sans-serif;
   font-size: 18px;
   line-height: 24px;
   color: #eee;
+=======
+  font-family: "Roboto", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  color: #eeeeee;
+>>>>>>> 1f01292f3106fef3184f0cafa9ba05e2051736b6
   background: #000 url("../img/bg.svg") repeat;
   background-size: 5px;
 }
 
 .container {
+<<<<<<< HEAD
   max-width: 1200px;
+=======
+  max-width: 920px;
+>>>>>>> 1f01292f3106fef3184f0cafa9ba05e2051736b6
   margin: 0 auto;
 }
 
@@ -74,6 +85,7 @@ a:active {
   object-fit: cover;
 }
 
+<<<<<<< HEAD
 .lang__list {
   display: flex;
   padding: 0;
@@ -99,11 +111,14 @@ a:active {
   text-decoration: underline;
 }
 
+=======
+>>>>>>> 1f01292f3106fef3184f0cafa9ba05e2051736b6
 .bio {
   margin-bottom: 50px;
   text-align: justify;
 }
 
+<<<<<<< HEAD
 .bio p:first-child {
   margin-top: 0;
 }
@@ -120,4 +135,26 @@ html[lang="de"] .bio__descr--de {
 
 .contact {
   text-align: center;
+=======
+.pieces__list {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contact {
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  background-color: #000;
+}
+
+.footer__copyright {
+  margin: 0;
+>>>>>>> 1f01292f3106fef3184f0cafa9ba05e2051736b6
 }
