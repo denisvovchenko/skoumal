@@ -1,20 +1,6 @@
 const show = value => console.log(value);
 
-const langTogglers = document.querySelectorAll('[data-lang]');
-
-langTogglers.forEach(el => {
-  el.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    document.documentElement.lang = this.dataset.lang;
-  });  
-});
-
-let bio = document.querySelector('.bio');
-let bioFirstParag = bio.querySelector('p');
-
-bio.querySelector('.bio__descr').style.height = `${bioFirstParag.clientHeight}px`;
-bio.style.overflow = 'hidden';
+// Gallery slider
 
 const gallerySlider = (gallery) => {
   let windowWidth = document.documentElement.clientWidth;
@@ -52,8 +38,6 @@ const gallerySlider = (gallery) => {
     gallery.style.transform = `translate(${moving}px)`;
     
   });
-
-  show(imageWidth * gallery.children.length + itemMargin * (gallery.children.length - 1) - galleryWidth);
   
   btnNext.addEventListener('click', () => {
     if (Math.abs(moving) >= imageWidth * gallery.children.length + itemMargin * (gallery.children.length - 1) - galleryWidth) return;
@@ -61,17 +45,103 @@ const gallerySlider = (gallery) => {
     moving -= imageWidth + itemMargin;
 
     gallery.style.transform = `translate(${moving}px)`;
-
-    
-  show(moving);
   });
 }
 
 let gallery = document.querySelector('.gallery__list');
+let galleryImages = gallery.querySelectorAll('.gallery__img');
+
 
 gallerySlider(gallery);
 
 window.addEventListener('resize', () => {
   gallerySlider(gallery);
 });
+
+// Gallery popup
+
+const imagePopup = () => {
+  let imageLinks = document.querySelectorAll('.gallery__link');
+  let modalOverlay = document.querySelector('.modal__overlay');
+  let modal = document.querySelector('.gallery__modal');
+  let currentElement;
+  let modalImage = modal.querySelector('.modal__img');
+
+  imageLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+
+      currentElement = link.closest('.gallery__item');
+      show(currentElement);
+      let imageSrc = link.href;
+      modalOverlay.classList.add('modal__overlay--show');      
+      modalImage.src = imageSrc;
+    });
+  });
+
+  // Close modal 
+
+  const closeModal = () => {
+    let closeBtn = document.querySelector('.modal__close-btn');
+    let modalOverlay = document.querySelector('.modal__overlay');
+
+    document.addEventListener('click', function(e) {
+      let target = e.target;
+
+      if (target !== modalOverlay && target !== closeBtn) return;
+
+      modalOverlay.classList.remove('modal__overlay--show');
+    });
+
+    window.addEventListener('keydown', e => {
+      if (e.keyCode === 27) {
+        modalOverlay.classList.remove('modal__overlay--show');
+      }
+    });
+  }
+
+  closeModal();
+
+  // Switch photo in popup
+
+  const movePopupPhotos = (e) => {
+    let target = e.target;
+      
+    if (target.classList.contains('modal__btn--prev') || e.keyCode === 37) {
+      
+      if (!currentElement.previousElementSibling) {
+        currentElement = currentElement.parentElement.lastElementChild;
+      }
+
+      currentElement = currentElement.previousElementSibling;
+
+      modalImage.src = currentElement.querySelector('.gallery__link').href;
+
+    } else if (target.classList.contains('modal__btn--next') || e.keyCode === 39) {
+
+      if (!currentElement.nextElementSibling) {
+        currentElement = currentElement.parentElement.firstElementChild;
+      }
+
+      currentElement = currentElement.nextElementSibling;
+
+      modalImage.src = currentElement.querySelector('.gallery__link').href;
+    }
+  }
+
+  document.querySelectorAll('.modal__btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      movePopupPhotos(e);
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    movePopupPhotos(e);
+  });
+  
+}
+
+imagePopup();
+
+
 
