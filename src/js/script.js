@@ -11,6 +11,7 @@ let body = document.querySelector('body');
 const removePopup = popup => {
   body.removeChild(popup);
   body.classList.remove('modal-open');
+  document.querySelector('html').classList.remove('modal-open');
 }
 
 // Create modal popup
@@ -51,6 +52,7 @@ const createPopup = block => {
   popupWindow.appendChild(closeBtn);
   body.appendChild(popupOverlay);
   body.classList.add('modal-open');
+  document.querySelector('html').classList.add('modal-open');
 
   // Fix in the future!!!
   popupOverlay.style.display = 'flex';
@@ -95,18 +97,29 @@ const gallerySlider = (gallery) => {
 
   btnPrev.addEventListener('click', () => {
     if (moving >= 0) return;
+
+    btnNext.classList.remove('controls__btn--disabled');
     
     moving += imageWidth + itemMargin;
     gallery.style.transform = `translate(${moving}px)`;
     
+    if (moving >= 0) {
+      btnPrev.classList.add('controls__btn--disabled');
+    }
   });
   
   btnNext.addEventListener('click', () => {
     if (Math.abs(moving) >= imageWidth * gallery.children.length + itemMargin * (gallery.children.length - 1) - galleryWidth) return;
 
+    btnPrev.classList.remove('controls__btn--disabled');
+
     moving -= imageWidth + itemMargin;
 
     gallery.style.transform = `translate(${moving}px)`;
+
+    if (Math.abs(moving) >= imageWidth * gallery.children.length + itemMargin * (gallery.children.length - 1) - galleryWidth) {
+      btnNext.classList.add('controls__btn--disabled');
+    }
   });
 }
 
@@ -140,6 +153,10 @@ window.addEventListener('resize', () => {
     modalImage.classList = 'gallery-popup__img';
     modalPic.appendChild(modalImage);
 
+    let modalDescr = document.createElement('p');
+    modalDescr.classList = 'gallery-popup__descr';
+    galleryModalBlock.appendChild(modalDescr);
+
     let modalControls = document.createElement('div');
     modalControls.classList = 'modal__controls controls';
     galleryModalBlock.appendChild(modalControls);
@@ -168,6 +185,8 @@ window.addEventListener('resize', () => {
         let imageWebpSrc = link.querySelector('source').srcset;    
         modalImage.src = imageSrc;
         modalSource.src = imageWebpSrc;
+        let image = link.querySelector('.gallery__img');
+        modalDescr.textContent = image.alt;
 
         createPopup(galleryModalBlock);
 
@@ -193,7 +212,10 @@ window.addEventListener('resize', () => {
 
         currentElement = currentElement.previousElementSibling;
 
+        let modalDescrText = currentElement.querySelector('.gallery__img').alt;
+
         modalImage.src = currentElement.querySelector('.gallery__link').href;
+        modalDescr.textContent = modalDescrText;
 
       } else if (target.classList.contains('modal__btn--next') || e.keyCode === 39) {
 
@@ -203,7 +225,10 @@ window.addEventListener('resize', () => {
 
         currentElement = currentElement.nextElementSibling;
 
+        let modalDescrText = currentElement.querySelector('.gallery__img').alt;
+
         modalImage.src = currentElement.querySelector('.gallery__link').href;
+        modalDescr.textContent = modalDescrText;
       }
     }    
 
@@ -249,6 +274,24 @@ window.addEventListener('resize', () => {
   bioBtnSlide.addEventListener('click', function() {
     slideToggle(bioAdd);
   });
+
+  const relocateParag = () => {
+    let bioDescr = document.querySelector('.bio__descr');
+    let bioDescrAdd = document.querySelector('.bio__add-text');
+    let bioParags = document.querySelectorAll('.bio__text');
+
+    if (html.clientWidth < 768) {
+      bioDescrAdd.insertBefore(bioParags[1], bioDescrAdd.children[0]);
+    } else {
+      bioDescr.insertBefore(bioParags[1], bioDescrAdd);
+    }
+  }
+  
+  relocateParag();
+
+  window.onresize = () => {
+    relocateParag();
+  }
 }
 
 // Popup bio
@@ -371,4 +414,18 @@ window.addEventListener('resize', () => {
 
   setVideos();
 
+}
+
+// Toggle nav on mobile
+{
+  let nav = document.querySelector('.nav');
+  let navList = nav.querySelector('.nav__list');
+  let navBtn = nav.querySelector('.nav__btn');
+
+  
+  navBtn.addEventListener('click', e => {
+    e.preventDefault();
+
+    navList.classList.toggle('nav__list--show');
+  })
 }
