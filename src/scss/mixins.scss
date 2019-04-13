@@ -1,0 +1,33 @@
+@mixin center-x($left: 50%, $x: -50%) {
+  position: absolute;
+  left: $left;
+
+  transform: translate($x);
+}
+
+@mixin center-y($top: 50%, $y: -50%) {
+  position: absolute;
+  top: $top;
+
+  transform: translate($y);
+}
+
+@mixin center($left: 50%, $top: $left, $x: -50%, $y: $x) {
+  position: absolute;
+  top: $top;
+  left: $left;
+
+  transform: translate($x, $y);
+}
+
+@mixin pseudo {
+  content: "";
+  position: absolute;
+}
+
+@mixin listReset {
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}

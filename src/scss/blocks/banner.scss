@@ -1,0 +1,14 @@
+.banner {
+  position: relative;
+
+  display: flex;
+  max-height: 85vh;
+
+  &__pic {
+    overflow: hidden;
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,16 @@
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background: #000 url("../img/svg/bg.svg") repeat;
+  background-size: 5px;
+
+  @media #{$max-lg} {
+    position: fixed;
+
+    width: 100%;
+
+    background: none;
+  }
+}

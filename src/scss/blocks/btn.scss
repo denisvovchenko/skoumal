@@ -1,0 +1,38 @@
+.btn {
+  &:hover,
+  &:focus,
+  &:active {
+    color: #000;
+    background: #fff;
+
+    transition: 0.2s ease-in-out;
+  }
+
+  &:not(:last-of-type) {
+    margin-right: 10px;
+  }
+
+  &:not(:first-of-type) {
+    @media #{$max-sm} {
+      margin-top: 10px;
+    }
+  }
+
+  display: inline-block;
+  padding: 10px 30px;
+
+  font: {
+    family: $font;
+    size: 20px;
+    weight: 700;
+  }
+  text-decoration: none;
+  text-transform: uppercase;
+
+  color: #000;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+
+  transition: 0.2s ease-in-out;
+}

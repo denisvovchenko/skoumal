@@ -1,0 +1,20 @@
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @media #{$min-sm} {
+    max-width: 576px;
+  }
+
+  @media #{$min-md} {
+    max-width: 768px;
+  }
+
+  @media #{$min-lg} {
+    max-width: 992px;
+  }
+
+  @media #{$min-xl} {
+    max-width: 1200px;
+  }
+}
