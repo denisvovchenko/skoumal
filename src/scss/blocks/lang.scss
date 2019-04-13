@@ -1,0 +1,22 @@
+.lang__list {
+  @include listReset;
+  display: flex;
+  align-items: center;
+}
+
+.lang__item {
+  margin-right: 15px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.lang__link {
+  display: block;
+  @include size(30px);
+}
+
+.lang__icon {
+  @include size(100%);
+}
