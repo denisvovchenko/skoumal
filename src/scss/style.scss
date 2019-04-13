@@ -1,144 +1,25 @@
-.page {
-  font-family: "Roboto", "Arial", sans-serif;
-  font-size: 18px;
-  line-height: 24px;
+@import "fonts.scss";
+@import "scaffolding.scss";
+@import "variables.scss";
+@import "mixins.scss";
 
-  color: #eeeeee;
-  background: #000 url("../img/bg.svg") repeat;
-  background-size: 5px;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-img {
-  width: 100%;
-  height: auto;
-}
-
-a {
-  color: inherit;
-}
-
-a:hover,
-a:focus,
-a:active {
-  color: #fff;
-}
-
-/* Header */
-
-.header {
-  position: sticky;
-  top: 0;
-
-  background: #000 url("../img/bg.svg") repeat;
-  background-size: 5px; 
-}
-
-.nav_list {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-
-  list-style: none;
-}
-
-.nav_link {
-  position: relative;
-
-  display: block;
-  height: 100%;
-  padding: 15px 30px;
-
-  font-size: 20px;
-  font-weight: 400;
-  text-decoration: none;
-}
-
-.nav_link:hover::after,
-.nav_link:focus::after,
-.nav_link:active::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 20px;
-  right: 20px;
-
-  height: 3px;
-  background-color: #fff;
-}
-
-/* Banner */
-
-.banner {
-  display: flex;
-  max-height: 500px;
-}
-
-.banner__img {
-  object-fit: cover;
-}
-
-/* Biography */
-
-.bio {
-  margin-bottom: 50px;
-
-  text-align: justify;
-}
-
-.bio__descr {
-  width: 60%;
-}
-
-/* Pieces */
-
-.pieces {
-  padding: 30px 0 50px;
-  background: #000;
-}
-
-.pieces__list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 20px;
-  align-items: center;
-  padding: 0;
-  margin: 0 0 30px;
-
-  list-style: none;
-}
-
-.pieces__item {
-  margin-bottom: 10px;
-}
-
-.pieces__item:nth-child(6) ~ * {
-  display: none;
-}
-
-/* Contact */
-
-.contact {
-  padding: 30px 0;
-
-  text-align: center;
-}
-
-/* Footer */
-
-.footer {
-  padding: 20px 0;
-
-  text-align: center;
-
-  background-color: #000;
-}
-
-.footer__copyright {
-  margin: 0;
-}
+@import "blocks/banner.scss";
+@import "blocks/bio.scss";
+@import "blocks/block-title.scss";
+@import "blocks/block.scss";
+@import "blocks/btn.scss";
+@import "blocks/cd.scss";
+@import "blocks/close-btn.scss";
+@import "blocks/contact.scss";
+@import "blocks/container.scss";
+@import "blocks/controls.scss";
+@import "blocks/footer.scss";
+@import "blocks/gallery.scss";
+@import "blocks/modal.scss";
+@import "blocks/nav.scss";
+@import "blocks/page-header.scss";
+@import "blocks/page-title.scss";
+@import "blocks/pieces.scss";
+@import "blocks/sheets.scss";
+@import "blocks/video.scss";
+@import "blocks/visually-hidden.scss";

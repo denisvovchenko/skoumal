@@ -34,11 +34,10 @@
     "gulp-rename": "^1.4.0",
     "gulp-rigger": "^0.5.8",
     "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-svgo": "^1.5.4",
     "gulp-uglify": "^3.0.1",
     "imagemin-pngquant": "^6.0.0"
   },
-  "dependencies": {
-    "normalize-scss": "^7.0.1"
-  }
+  "dependencies": {}
 }

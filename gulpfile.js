@@ -5,6 +5,7 @@ const gulp = require('gulp'),
       imagemin = require('gulp-imagemin'),
       plumber = require('gulp-plumber'),
       sass = require('gulp-sass'),
+      sourcemaps = require('gulp-sourcemaps'),
       rename = require('gulp-rename'),
       postcss = require('gulp-postcss'),
       autoprefixer = require('autoprefixer'),
@@ -33,27 +34,6 @@ function clean() {
   return del(['./dist']);
 }
 
-function images() {
-  return gulp
-    .src('./src/img/**/*')
-    .pipe(newer('./dist/img'))
-    .pipe(
-      imagemin([
-        imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [
-            {
-              removeViewBox: false,
-              collapseGroups: true
-            }
-          ]
-        })
-      ])      
-    )
-    .pipe(gulp.dest('./dist/img'));
-}
-
 function html() {
   return gulp
     .src('./src/index.html')
@@ -63,9 +43,11 @@ function html() {
 
 function css() {
   return gulp
-    .src('./src/scss/**/*.scss')
+    .src('./src/scss/style.scss')
+    .pipe(sourcemaps.init())
     .pipe(plumber())
     .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./src/css/'))
     // .pipe(rename({ suffix: '.min' }))
     // .pipe(postcss([autoprefixer(), cssnano()]))
@@ -73,40 +55,17 @@ function css() {
     .pipe(browsersync.stream());
 }
 
-function scriptsLint() {
-  return gulp
-    .src(['./src/js/**/*', './gulpfile.js'])
-    .pipe(plumber())
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
-}
-
-function scripts() {
-  return (
-    gulp
-      .src(['./src/js/**/*'])
-      .pipe(plumber())
-      .pipe(gulp.dest('./src/js/'))
-      .pipe(browsersync.stream())
-  );
-}
-
 function watchFiles() {
   gulp.watch('./src/index.html', html);
   gulp.watch('./src/scss/**/*', css);
-  gulp.watch('./src/js/**/*', gulp.series(scriptsLint, scripts));
-  gulp.watch('./src/img/**/*', images);
 }
 
-const js = gulp.series(scriptsLint, scripts);
-const build = gulp.series(clean, gulp.parallel(html, css, images, js));
+// const js = gulp.series(scriptsLint, scripts);
+const build = gulp.series(clean, css);
 const watch = gulp.parallel(watchFiles, browserSync);
 
 exports.clean = clean;
-exports.images = images;
 exports.css = css;
-exports.js = js;
 exports.build = build;
 exports.watch = watch;
-exports.default = build;
+exports.default = watch;
