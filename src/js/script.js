@@ -3,9 +3,40 @@ const show = value => console.log(value);
 let html = document.documentElement;
 let body = document.querySelector('body');
 
+// get window height
+const getWindowHeight = () => document.documentElement.clientHeight;
+
 // Navigation
 {
+  const setActiveNavItem = (link, section) => {
+    let sectionPos = section.getBoundingClientRect();
 
+    if ( (sectionPos.top + 20) > navPos.bottom
+      && (sectionPos.top) < getWindowHeight() / 2
+      || sectionPos.bottom > getWindowHeight() / 2
+      && sectionPos.top < navPos.bottom) {
+      link.classList.add('nav__link--active');
+    } else {
+      link.classList.remove('nav__link--active');
+    }
+  }
+
+  let nav = document.querySelector('.nav');
+  let navLinks = nav.querySelectorAll('.nav__link');
+  let navPos = nav.getBoundingClientRect();
+
+  navLinks.forEach((link) => {
+    let anchor = link.getAttribute('href');
+    let id = anchor.split('#')[1];
+
+    let section = document.querySelector('#' + id);
+
+    setActiveNavItem(link, section);
+
+    window.addEventListener('scroll', e => {
+      setActiveNavItem(link, section);
+    });
+  });
 }
 
 // Delete modal popup
@@ -239,6 +270,10 @@ window.addEventListener('resize', () => {
 
       movePopupPhotos(e);
     });
+
+    function createPopup() {
+
+    }
 
   }
 
