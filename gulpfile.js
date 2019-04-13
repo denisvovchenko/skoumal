@@ -43,10 +43,10 @@ function html() {
 
 function css() {
   return gulp
-    .src('./src/scss/**/*.scss')
+    .src('./src/scss/style.scss')
     .pipe(sourcemaps.init())
     .pipe(plumber())
-    .pipe(sass({ outputStyle: 'expanded' }))    
+    .pipe(sass({ outputStyle: 'expanded' }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./src/css/'))
     // .pipe(rename({ suffix: '.min' }))

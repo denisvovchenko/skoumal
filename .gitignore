@@ -1,3 +1,14 @@
+.DS_Store
+.idea
+.vscode
+*.ai
+*.log
+*.pdf
+*.psd
+*.sublime*
 node_modules/
-dist
-src/css/
+npm-debug.*
+src/css/*.css
+src/css/*.map
+Thumbs.db
+dist/
