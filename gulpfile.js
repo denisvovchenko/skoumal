@@ -44,14 +44,14 @@ function html() {
 function css() {
   return gulp
     .src('./src/scss/style.scss')
-    .pipe(sourcemaps.init())
     .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(sass({ outputStyle: 'expanded' }))
+    .pipe(postcss([
+      autoprefixer()
+    ]))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./src/css/'))
-    // .pipe(rename({ suffix: '.min' }))
-    // .pipe(postcss([autoprefixer(), cssnano()]))
-    // .pipe(gulp.dest('./dist/css/'))
     .pipe(browsersync.stream());
 }
 

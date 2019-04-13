@@ -7,6 +7,7 @@ $min-lg: "(min-width: 992px)";
 $max-xl: "(max-width: 1199px)";
 $min-xl: "(min-width: 1200px)";
 
-$font: "Roboto", "Arial", sans-serif;
-$font-color: #eeeeee;
+$allStates: "&:hover, &:focus, &:active";
 
+$font: "Roboto", "Arial", sans-serif;
+$fontColor: #eeeeee;

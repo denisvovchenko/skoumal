@@ -3,7 +3,7 @@
   top: 0;
   z-index: 10;
 
-  background: #000 url("../img/svg/bg.svg") repeat;
+  background: #000000 url("../img/svg/bg.svg") repeat;
   background-size: 5px;
 
   @media #{$max-lg} {
@@ -13,4 +13,9 @@
 
     background: none;
   }
+}
+
+.page-header__container {
+  display: flex;
+  justify-content: space-between;
 }

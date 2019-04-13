@@ -9,7 +9,7 @@
   position: absolute;
   top: $top;
 
-  transform: translate($y);
+  transform: translateY($y);
 }
 
 @mixin center($left: 50%, $top: $left, $x: -50%, $y: $x) {
@@ -30,4 +30,17 @@
   margin: 0;
 
   list-style: none;
+}
+
+@mixin btnReset {
+  padding: 0;
+
+  background: 0;
+  border: none;
+  cursor: pointer;
+}
+
+@mixin size($width: 20px, $height: $width) {
+  width: $width;
+  height: $height;
 }

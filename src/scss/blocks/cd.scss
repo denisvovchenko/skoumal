@@ -1,88 +1,84 @@
-.cd {
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, auto));
-    grid-gap: 30px;
-    @include listReset;
+.cd__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, auto));
+  grid-gap: 30px;
+  @include listReset;
+}
+
+.cd__link {
+  display: block;
+
+  border: 1px solid rgba(#ffffff, 0.5);
+}
+
+.cd__pic {
+  display: block;
+}
+
+.cd__descr {
+  display: none;
+  margin: 0;
+}
+
+.cd__text {
+  display: none;
+  margin: 0;
+}
+
+.cd-popup__block {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-gap: 30px;
+  max-width: 850px;
+  padding: 30px 15px;
+
+  background: #000000;
+
+  @media #{$max-md} {
+    max-width: 550px;
   }
 
-  &__link {
-    display: block;
-
-    border: 1px solid transparentize($color: #fff, $amount: 0.5);
+  @media #{$max-sm} {
+    grid-template-columns: 1fr;
+    max-width: 280px;
   }
+}
 
-  &__pic {
-    display: block;
+.cd-popup__block .cd__pic {
+  max-width: 200px;
+  margin: auto;
+
+  @media #{$max-sm} {
+    max-width: 100px;
   }
+}
 
-  &__descr {
-    display: none;
-    margin: 0;
+.cd-popup__block .cd__descr {
+  display: block;
+  align-self: center;
+
+  line-height: 28px;
+}
+
+.cd-popup__block .cd__text {
+  grid-column: 1/-1;
+  display: block;
+  padding: 20px 25px 0;
+  overflow-y: auto;
+
+  text-align: justify;
+
+  border-top: 2px solid rgba(#ffffff, 0.5);
+
+  @media #{$max-sm} {
+    min-height: 300px;
+    padding: 20px 0;
+    overflow: visible;
+
+    text-align: left;
   }
+}
 
-  &__text {
-    display: none;
-    margin: 0;
-  }
-
-  &-popup__block {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-gap: 30px;
-    max-width: 850px;
-    padding: 30px 15px;
-
-    background: #000;
-
-    @media #{$max-md} {
-      max-width: 550px;
-    }
-
-    @media #{$max-sm} {
-      grid-template-columns: 1fr;
-      max-width: 280px;
-    }
-  }
-
-  &-popup__block &__pic {
-    max-width: 200px;
-    margin: auto;
-
-    @media #{$max-sm} {
-      max-width: 100px;
-    }
-  }
-
-  &-popup__block &__descr {
-    display: block;
-    align-self: center;
-
-    line-height: 28px;
-  }
-
-  &-popup__block &__text {
-    grid-column: 1/-1;
-    display: block;
-    padding: 20px 25px 0;
-    overflow-y: auto;
-
-    text-align: justify;
-
-    border-top: 2px solid rgba(255, 255, 255, 0.5);
-
-    @media #{$max-sm} {
-      min-height: 300px;
-      padding: 20px 0;
-      overflow: visible;
-
-      text-align: left;
-    }
-  }
-
-  &-popup__block &__text--small {
-    font-size: 16px;
-
-
-  }
+.cd-popup__block .cd__text--small {
+  font-size: 16px;
 }

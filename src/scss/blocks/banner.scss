@@ -3,12 +3,27 @@
 
   display: flex;
   max-height: 85vh;
+}
 
-  &__pic {
-    overflow: hidden;
+.banner__pic {
+  overflow: hidden;
+}
+
+.banner__img {
+  object-fit: cover;
+}
+
+.banner__title {
+  bottom: -12px;
+  position: absolute;
+
+  width: 100%;
+
+  @media #{$max-lg} {
+    bottom: -9px;
   }
 
-  &__img {
-    object-fit: cover;
+  @media #{$max-sm} {
+    bottom: -6px;
   }
 }

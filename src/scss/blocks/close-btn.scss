@@ -7,14 +7,15 @@
     transition: 0.2s ease-in-out;
   }
 
-  @include center(-35px, -35px, 0, 0);
+  @include center(auto, -35px, 0, 0);
+  right: -35px;
   z-index: 1;
 
   width: 30px;
   height: 30px;
   padding: 0;
 
-  background: #000 url("../img/svg/close.svg") no-repeat center;
+  background: #000000 url("../img/svg/close.svg") no-repeat center;
   background-size: 15px;
   border: none;
   border-radius: 50%;

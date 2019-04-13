@@ -1,83 +1,81 @@
-.gallery {
-  &__slider {
-    position: relative;
+.gallery__slider {
+  position: relative;
 
-    padding: 0 55px;
-    // margin-bottom: 50px;
+  padding: 0 55px;
+  // margin-bottom: 50px;
 
-    @media #{$max-sm} {
-      margin-bottom: 0;
-    }
+  @media #{$max-sm} {
+    margin-bottom: 0;
+  }
+}
+
+.gallery__list-wrapper {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.gallery__list {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  @include listReset;
+
+  transition: 0.4s ease-in-out;
+}
+
+.gallery__item {
+  &:not(:last-child) {
+    margin-right: 30px;
   }
 
-  &__list-wrapper {
-    position: relative;
+  flex-shrink: 0;
+  max-height: 200px;
+}
 
-    overflow: hidden;
+.gallery__link {
+  display: block;
+}
+
+.gallery__pic {
+  display: block;
+}
+
+.gallery__img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.gallery-popup__block {
+  padding: 0;
+
+  border: 5px solid #ffffff;
+}
+
+.gallery-popup__descr {
+  &:empty {
+    display: none;
   }
 
-  &__list {
-    position: relative;
-    z-index: 1;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
 
-    display: flex;
-    align-items: center;
-    @include listReset;
+  padding: 10px 20px 10px 20px;
+  margin: 0;
 
-    transition: 0.4s ease-in-out;
-  }
+  font-size: 16px;
+  line-height: 22px;
 
-  &__item {
-    &:not(:last-child) {
-      margin-right: 30px;
-    }
+  background: rgba(#000000, 0.8);
 
-    flex-shrink: 0;
-    max-height: 200px;
-  }
+  @media #{$max-sm} {
+    padding: 5px 20px;
 
-  &__link {
-    display: block;
-  }
-
-  &__pic {
-    display: block;
-  }
-
-  &__img {
-    max-height: 100%;
-    object-fit: contain;
-  }
-
-  &-popup__block {
-    padding: 0;
-
-    border: 5px solid #fff;
-  }
-
-  &-popup__descr {
-    &:empty {
-      display: none;
-    }
-
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
-
-    padding: 10px 20px 10px 20px;
-    margin: 0;
-
-    font-size: 16px;
-    line-height: 22px;
-
-    background: rgba(0, 0, 0, 0.8);
-
-    @media #{$max-sm} {
-      padding: 5px 20px;
-
-      font-size: 12px;
-      line-height: 14px;
-    }
+    font-size: 12px;
+    line-height: 14px;
   }
 }
