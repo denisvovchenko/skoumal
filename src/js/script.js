@@ -287,15 +287,25 @@ window.addEventListener('resize', () => {
   let initHeight = 0;
 
   const slideToggle = () => {
+
+    let bioBtnTextOpen = 'Read more';
+    let bioBtnTextClose = 'Read less';
+
+    if (html.lang == 'cs') {
+      bioBtnTextOpen = 'Rozbalit'
+      bioBtnTextClose = 'Sbalit';
+    }
+
     if (!open) {
-      bioBtn.textContent = 'Sbalit';
+      bioBtn.textContent = bioBtnTextClose;
       open = true;
+
       for (let i = 0; i < bioAddHeight; i++) {
         bioAdd.style.height = `${i}px`;
       }
 
     } else {
-      bioBtn.textContent = 'Rozbalit';
+      bioBtn.textContent = bioBtnTextOpen;
       open = false;
       for (let i = bioAddHeight; i >= 0; i--) {
         bioAdd.style.height = `${i}px`;
@@ -305,8 +315,12 @@ window.addEventListener('resize', () => {
 
   let bioBtn = document.querySelector('.bio__btn');
   let bioAdd = document.querySelector('.bio__add-text');
-  let bioAddHeight = bioAdd.offsetHeight;
-  bioAdd.style.height = 0;
+  let bioAddHeight;
+
+  setTimeout(() => {
+    bioAddHeight = bioAdd.offsetHeight;
+    bioAdd.style.height = 0;
+  }, 100);
 
   bioBtn.addEventListener('click', function() {
     slideToggle(bioAdd);
@@ -317,7 +331,7 @@ window.addEventListener('resize', () => {
     let bioDescrAdd = document.querySelector('.bio__add-text');
     let bioParags = document.querySelectorAll('.bio__text');
 
-    if (html.clientWidth < 768) {
+    if (html.clientWidth < 992) {
       bioDescrAdd.insertBefore(bioParags[1], bioDescrAdd.children[0]);
     } else {
       bioDescr.insertBefore(bioParags[1], bioDescrAdd);
@@ -374,6 +388,10 @@ window.addEventListener('resize', () => {
     let videos = document.querySelectorAll('.video__media');
 
     videos.forEach(video => {
+
+      // for no youtube videos
+      if (video.classList.contains('js-no-script')) return;
+
       video.addEventListener('click', e => {
         e.preventDefault();
 
@@ -410,11 +428,12 @@ window.addEventListener('resize', () => {
   let nav = document.querySelector('.nav');
   let navList = nav.querySelector('.nav__list');
   let navBtn = nav.querySelector('.nav__btn');
-
+  let langList = document.querySelector('.lang__list');
 
   navBtn.addEventListener('click', e => {
     e.preventDefault();
 
     navList.classList.toggle('nav__list--show');
+    langList.classList.toggle('lang__list--show');
   })
 }
