@@ -47,6 +47,10 @@
   @include size(68px, 48px);
 
   @include btnReset;
+
+  &--no-function {
+    pointer-events: none;
+  }
 }
 
 .video__btn-shape {

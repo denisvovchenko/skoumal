@@ -6,7 +6,7 @@
   background: #000000 url("../img/svg/bg.svg") repeat;
   background-size: 5px;
 
-  @media #{$max-lg} {
+  @media #{$max-md} {
     position: fixed;
 
     width: 100%;
@@ -16,6 +16,8 @@
 }
 
 .page-header__container {
+  position: relative;
+
   display: flex;
   justify-content: space-between;
 }

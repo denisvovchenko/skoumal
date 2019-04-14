@@ -30,13 +30,16 @@
 
 .pieces__list {
   display: grid;
-  grid-auto-flow: column;
   grid-template-columns: repeat(2, 1fr);
   // count of items / 2 to make 2 columns list
   grid-template-rows: repeat(3, 1fr);
   grid-gap: 20px 50px;
   align-items: center;
   @include listReset;
+
+  @media #{$min-md} {
+    grid-auto-flow: column;
+  }
 
   @media #{$max-sm} {
     grid-template-columns: 1fr;

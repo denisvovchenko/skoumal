@@ -2,6 +2,23 @@
   @include listReset;
   display: flex;
   align-items: center;
+
+  @media #{$max-md} {
+    display: none;
+
+    &--show {
+      position: absolute;
+      right: 280px;
+      top: 20px;
+
+      display: flex;
+    }
+  }
+
+  @media #{$max-sm} {
+    right: auto;
+    left: 20px;
+  }
 }
 
 .lang__item {
@@ -18,5 +35,14 @@
 }
 
 .lang__icon {
+  .lang__link:hover &,
+  .lang__link:focus & {
+    opacity: 0.8;
+  }
+
+  .lang__link:active & {
+    opacity: 0.5;
+  }
+
   @include size(100%);
 }

@@ -6,11 +6,12 @@
 }
 
 .banner__pic {
+  // display: flex;
   overflow: hidden;
 }
 
 .banner__img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .banner__title {
