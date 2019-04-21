@@ -1,0 +1,33 @@
+.download__list {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include listReset;
+
+  @media #{$max-sm} {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.download__item {
+  &:last-child {
+    margin-right: 0;
+  }
+
+  margin-right: 30px;
+
+  @media #{$max-lg} {
+    width: calc(33.3333% - 20px);
+    margin-bottom: 30px;
+  }
+
+  @media #{$max-sm} {
+    width: auto;
+    margin-right: 0;
+  }
+}
+
+.download__link {
+  display: block;
+}
