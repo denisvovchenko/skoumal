@@ -95,7 +95,6 @@ const createPopup = block => {
 }
 
 // Gallery slider
-
 const gallerySlider = (gallery, props) => {
   let windowWidth = document.documentElement.clientWidth;
   let galleryList = gallery.querySelector('.gallery__list');
@@ -167,7 +166,6 @@ window.addEventListener('resize', () => {
 // Gallery popup
 {
   const imagePopup = () => {
-
     let galleryModalBlock = document.createElement('div');
     galleryModalBlock.classList = 'gallery-popup__block';
 
@@ -212,8 +210,10 @@ window.addEventListener('resize', () => {
         e.preventDefault();
 
         currentElement = link.closest('.gallery__item');
-        let imageSrc = link.getAttribute('href');
-        let imageWebpSrc = link.querySelector('source').srcset;
+        let imageSrc = getFullSizePath(link.querySelector('img').getAttribute('src'));
+        let imageWebpSrc = getFullSizePath(link.querySelector('source').getAttribute('srcset'));
+
+        show(imageSrc);
         modalImage.src = imageSrc;
         modalSource.srcset = imageWebpSrc;
         let image = link.querySelector('.gallery__img');
@@ -230,8 +230,23 @@ window.addEventListener('resize', () => {
       });
     });
 
-    // Switch photo in popup
+    // convert img src from min-version to full
+    const getFullSizePath = (src) => {
 
+      if (html.clientWidth < 768) {
+        return src.replace('@1x', '@2x');
+      }
+
+      show(src);
+
+      let result = src.replace('-min', '');
+      result = result.replace('min/', '');
+      result = result.replace('@1x', '');
+
+      return result;
+    }
+
+    // Switch photo in popup
     const movePopupPhotos = e => {
       let target = e.target;
 
@@ -244,8 +259,8 @@ window.addEventListener('resize', () => {
         currentElement = currentElement.previousElementSibling;
 
         let modalDescrText = currentElement.querySelector('.gallery__img').alt;
-        modalSource.srcset = currentElement.querySelector('.gallery__img').previousElementSibling.srcset;
-        modalImage.src = currentElement.querySelector('.gallery__img').src;
+        modalSource.srcset = getFullSizePath(currentElement.querySelector('.gallery__img').previousElementSibling.getAttribute('srcset'));
+        modalImage.src = getFullSizePath(currentElement.querySelector('.gallery__img').getAttribute('src'));
         modalDescr.textContent = modalDescrText;
 
       } else if (target.classList.contains('modal__btn--next') || e.keyCode === 39) {
@@ -258,8 +273,8 @@ window.addEventListener('resize', () => {
 
         let modalDescrText = currentElement.querySelector('.gallery__img').alt;
 
-        modalSource.srcset = currentElement.querySelector('.gallery__img').previousElementSibling.srcset;
-        modalImage.src = currentElement.querySelector('.gallery__img').src;
+        modalSource.srcset = getFullSizePath(currentElement.querySelector('.gallery__img').previousElementSibling.getAttribute('srcset'));
+        modalImage.src = getFullSizePath(currentElement.querySelector('.gallery__img').getAttribute('src'));
         modalDescr.textContent = modalDescrText;
       }
     }

@@ -60,20 +60,17 @@ function scripts() {
   .pipe(gulp.dest('./src/js/'));
 }
 
-const js = gulp.series(scripts);
-
 function watchFiles() {
   gulp.watch('./src/index.html', html);
   gulp.watch('./src/scss/**/*', css);
-  gulp.watch('./js/**/*', js);
+  gulp.watch('./src/js/app.js', scripts);
 }
 
 const build = gulp.series(css);
 const watch = gulp.parallel(watchFiles, browserSync);
 
-exports.clean = clean;
+exports.js = scripts;
 exports.css = css;
-exports.js = js;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

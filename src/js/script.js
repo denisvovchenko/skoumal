@@ -182,8 +182,9 @@ window.addEventListener('resize', function () {
       link.addEventListener('click', function (e) {
         e.preventDefault();
         currentElement = link.closest('.gallery__item');
-        var imageSrc = link.getAttribute('href');
-        var imageWebpSrc = link.querySelector('source').srcset;
+        var imageSrc = getFullSizePath(link.querySelector('img').getAttribute('src'));
+        var imageWebpSrc = getFullSizePath(link.querySelector('source').getAttribute('srcset'));
+        show(imageSrc);
         modalImage.src = imageSrc;
         modalSource.srcset = imageWebpSrc;
         var image = link.querySelector('.gallery__img');
@@ -195,7 +196,20 @@ window.addEventListener('resize', function () {
           });
         });
       });
-    }); // Switch photo in popup
+    }); // convert img src from min-version to full
+
+    var getFullSizePath = function getFullSizePath(src) {
+      if (html.clientWidth < 768) {
+        return src.replace('@1x', '@2x');
+      }
+
+      show(src);
+      var result = src.replace('-min', '');
+      result = result.replace('min/', '');
+      result = result.replace('@1x', '');
+      return result;
+    }; // Switch photo in popup
+
 
     var movePopupPhotos = function movePopupPhotos(e) {
       var target = e.target;
@@ -207,8 +221,8 @@ window.addEventListener('resize', function () {
 
         currentElement = currentElement.previousElementSibling;
         var modalDescrText = currentElement.querySelector('.gallery__img').alt;
-        modalSource.srcset = currentElement.querySelector('.gallery__img').previousElementSibling.srcset;
-        modalImage.src = currentElement.querySelector('.gallery__img').src;
+        modalSource.srcset = getFullSizePath(currentElement.querySelector('.gallery__img').previousElementSibling.getAttribute('srcset'));
+        modalImage.src = getFullSizePath(currentElement.querySelector('.gallery__img').getAttribute('src'));
         modalDescr.textContent = modalDescrText;
       } else if (target.classList.contains('modal__btn--next') || e.keyCode === 39) {
         if (!currentElement.nextElementSibling) {
@@ -217,8 +231,8 @@ window.addEventListener('resize', function () {
 
         currentElement = currentElement.nextElementSibling;
         var _modalDescrText = currentElement.querySelector('.gallery__img').alt;
-        modalSource.srcset = currentElement.querySelector('.gallery__img').previousElementSibling.srcset;
-        modalImage.src = currentElement.querySelector('.gallery__img').src;
+        modalSource.srcset = getFullSizePath(currentElement.querySelector('.gallery__img').previousElementSibling.getAttribute('srcset'));
+        modalImage.src = getFullSizePath(currentElement.querySelector('.gallery__img').getAttribute('src'));
         modalDescr.textContent = _modalDescrText;
       }
     };
