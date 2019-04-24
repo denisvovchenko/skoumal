@@ -12,6 +12,10 @@
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body class="page">
+  <svg viewBox="0 0 68 48" width="68" height="48" style="display: none;">
+    <symbol id="youtube-btn">
+    <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></symbol>
+  </svg>
 
   <header class="page-header">
     <div class="page-header__container container">
@@ -48,7 +52,7 @@
         <li class="lang__item ">
           <a href="de" class="lang__link">
             <span class="visually-hidden">Deutsch</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path style="fill:#464655;" d="M512,200.093H0V97.104c0-4.875,3.953-8.828,8.828-8.828h494.345c4.875,0,8.828,3.953,8.828,8.828 L512,200.093L512,200.093z"/><path style="fill:#FFE15A;" d="M503.172,423.725H8.828c-4.875,0-8.828-3.953-8.828-8.828V311.909h512v102.988 C512,419.773,508.047,423.725,503.172,423.725z"/><rect y="200.091" style="fill:#FF4B55;" width="512" height="111.81"/></svg>
+            <svg class="lang__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20"><path style="fill:#464655;" d="M512,200.093H0V97.104c0-4.875,3.953-8.828,8.828-8.828h494.345c4.875,0,8.828,3.953,8.828,8.828 L512,200.093L512,200.093z"/><path style="fill:#FFE15A;" d="M503.172,423.725H8.828c-4.875,0-8.828-3.953-8.828-8.828V311.909h512v102.988 C512,419.773,508.047,423.725,503.172,423.725z"/><rect y="200.091" style="fill:#FF4B55;" width="512" height="111.81"/></svg>
           </a>
         </li>
       </ul>
@@ -59,7 +63,9 @@
 
     <section class="banner">
       <picture class="banner__pic">
-        <source srcset="img/banner.webp" type="image/webp">
+        <source media="(max-width: 767px)" type="image/webp" srcset="img/banner-mob@1x.webp 1x, img/banner-mob@2x.webp 2x">
+        <source media="(max-width: 767px)" srcset="img/banner-mob@1x.jpg 1x, img/banner-mob@2x.jpg 2x">
+        <source type="image/webp" srcset="img/banner.webp">
         <img class="banner__img" src="img/banner.jpg"  width="1920" height="800" alt="Adam Skoumal &copy; Kateřina Hager">
       </picture>
 
@@ -76,7 +82,7 @@
         <div class="bio__body">
           <div class="bio__descr bio__descr--en">
             <p class="bio__text">
-              Adam Skoumal is known to the audiences in Europe, USA, and Japan as one of the foremost Czech pianists and composers.He has appeared as soloist with leading Czech and Slovak orchestras (e.g., under the baton of Petr Altrichter, Serge Baudo, Lukasz Borowitz, Jiří Kout, Leoš Svárovský, Jakub Hrůša, Stanislav Vavřínek, Petr Vronský, Andreas Sebastian Weiser) and anumber of European orchestras, such as the Bamberger Symphoniker led by Jonathan Nott. In past years, he has performed at the concert series organized by the Czech Philharmonic, Prague Symphony Orchestra, Prague Chamber Philharmonia, Pilsen Philharmonia, Carlsbad Symphony Orchestra and at festivals such as Prague Spring, Prague Autumn, Janacek May Ostrava, Lípa Musica, Concentus Moraviae and Moravian Autumn. He regularly travels abroad with the Czech National Theatre Orchestra.
+              Adam Skoumal is known to the audiences in Europe, USA, and Japan as one of the foremost Czech pianists and composers. He has appeared as soloist with leading Czech and Slovak orchestras (e.g., under the baton of Petr Altrichter, Serge Baudo, Lukasz Borowitz, Jiří Kout, Leoš Svárovský, Jakub Hrůša, Stanislav Vavřínek, Petr Vronský, Andreas Sebastian Weiser) and anumber of European orchestras, such as the Bamberger Symphoniker led by Jonathan Nott. In past years, he has performed at the concert series organized by the Czech Philharmonic, Prague Symphony Orchestra, Prague Chamber Philharmonia, Pilsen Philharmonia, Carlsbad Symphony Orchestra and at festivals such as Prague Spring, Prague Autumn, Janacek May Ostrava, Lípa Musica, Concentus Moraviae and Moravian Autumn. He regularly travels abroad with the Czech National Theatre Orchestra.
             </p>
             <p class="bio__text">
               The first public recognition of Adam Skoumal as a composer occurred in the Prague Spring Competition 1998, when his playing of his own composition won a special prize for the best performance of a Czech contemporary piece. In 2006, he premiered his First Piano Concerto with the Prague Philharmonia and he also played his Second Piano Concerto with the Chamber Philharmonic Orchestra of South Bohemia in the same year. In the spring 2008/min, Shlomo Mintz premiered Skoumal's composition for violin and piano called "Djinnia" in Dubrovnik. Since /minthen, Mr.Mintz has played the piece several times on his tour through South America and also in Rome and Milano in Italy. The orchestral version of Djinnia was performed in 2013 by Jiří Bělohlávek with Prague Philharmonia and broadcasted live on Czech TV. Another violin composition, "Variations on a Gypsy Melody", was chosen to be an obligatory piece in the International Violin Competition in Sion, Switzerland in 2009, as well as the First International Violin Competition in Buenos Aires, Argentina 2010.
@@ -98,8 +104,8 @@
           </div>
           <div class="bio__img-wrapper">
             <picture>
-              <source srcset="img/bio-bg.webp" type="image/webp">
-              <img class="bio__img" src="img/bio-bg.jpg" width="438" height="491" alt="Adam Skoumal &copy; Kateřina Hager">
+              <source data-srcset="img/bio-bg.webp" type="image/webp">
+              <img class="bio__img" data-src="img/bio-bg.jpg" width="438" height="491" alt="Adam Skoumal &copy; Kateřina Hager">
             </picture>
           </div>
         </div>
@@ -115,80 +121,80 @@
             <ul class="video__list gallery__list">
               <li class="video__item gallery__item">
                 <div class="video__media" title="Milan Al-Ashhab plays Waxman - Carmen Fantasy">
-                  <a class="video__link" href="https://www.youtube.com/embed/pH7AdirKHQA" target="_blank">
+                  <a class="video__link" href="https://www.youtube.com/embed/pH7AdirKHQA" target="_blank" rel="noreferrer">
                     <picture>
-                      <img class="video__img" src="https://i.ytimg.com/vi/pH7AdirKHQA/hqdefault.jpg" alt="Milan Al-Ashhab plays Waxman - Carmen Fantasy">
+                      <img class="video__img" data-src="https://i.ytimg.com/vi/pH7AdirKHQA/hqdefault.jpg" alt="Milan Al-Ashhab plays Waxman - Carmen Fantasy">
                     </picture>
                   </a>
                   <button class="video__btn" type="button">
                     <span class="visually-hidden">Play</span>
-                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="video__btn-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path class="video__btn-icon" d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+                    <svg width="68" height="48"><use class="video__btn-shape" xlink:href="#youtube-btn"></use></svg>
                   </button>
                 </div>
               </li>
               <li class="video__item gallery__item">
                 <div class="video__media js-no-script" title="Beethoven's 3rd Sonata, Skoumal's Djinnia, 2 Kreislers and Waxman (Semifinal of the Kreisler Competition)">
-                  <a class="video__link" href="https://mediathek.mdw.ac.at/fritz_kreisler_2018/?tab=2&v=$1$IjK143WC$69noENcNRLqYfF68H89JL/" target="_blank">
+                  <a class="video__link" href="https://mediathek.mdw.ac.at/fritz_kreisler_2018/?tab=2&v=$1$IjK143WC$69noENcNRLqYfF68H89JL/" target="_blank" rel="noreferrer">
                     <picture>
-                      <source type="image/webp" srcset="img/kreisler-comp.webp">
-                      <img class="video__img" src="img/kreisler-comp.jpg" alt="Beethoven's 3rd Sonata, Skoumal's Djinnia, 2 Kreislers and Waxman (Semifinal of the Kreisler Competition)">
+                      <source type="image/webp" data-srcset="img/kreisler-comp.webp">
+                      <img class="video__img" data-src="img/kreisler-comp.jpg" alt="Beethoven's 3rd Sonata, Skoumal's Djinnia, 2 Kreislers and Waxman (Semifinal of the Kreisler Competition)">
                     </picture>
                   </a>
                   <button class="video__btn video__btn--no-function" type="button">
                     <span class="visually-hidden">Play</span>
-                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="video__btn-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path class="video__btn-icon" d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+                    <svg width="68" height="48"><use class="video__btn-shape" xlink:href="#youtube-btn"></use></svg>
                   </button>
                 </div>
               </li>
               <li class="video__item gallery__item">
                 <div class="video__media" title="George Gershwin: Rhapsody in blue (SOČR)">
-                  <a class="video__link" href="https://www.youtube.com/embed/yEhchSXy3e0" target="_blank">
+                  <a class="video__link" href="https://www.youtube.com/embed/yEhchSXy3e0" target="_blank" rel="noreferrer">
                     <picture>
-                      <img class="video__img" src="https://i.ytimg.com/vi/yEhchSXy3e0/hqdefault.jpg" alt="George Gershwin: Rhapsody in blue (SOČR)">
+                      <img class="video__img" data-src="https://i.ytimg.com/vi/yEhchSXy3e0/hqdefault.jpg" alt="George Gershwin: Rhapsody in blue (SOČR)">
                     </picture>
                   </a>
                   <button class="video__btn" type="button">
                     <span class="visually-hidden">Play</span>
-                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="video__btn-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path class="video__btn-icon" d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+                    <svg width="68" height="48"><use class="video__btn-shape" xlink:href="#youtube-btn"></use></svg>
                   </button>
                 </div>
               </li>
               <li class="video__item gallery__item">
                 <div class="video__media" title="Milan Al-Ashhab: Ernst, Bloch, Milstein, Tchaikovsky, Waxman">
-                  <a class="video__link" href="https://www.youtube.com/embed/QUQGnSC1l7I" target="_blank">
+                  <a class="video__link" href="https://www.youtube.com/embed/QUQGnSC1l7I" target="_blank" rel="noreferrer">
                     <picture>
-                      <img class="video__img" src="https://i.ytimg.com/vi/QUQGnSC1l7I/hqdefault.jpg" alt="Milan Al-Ashhab: Ernst, Bloch, Milstein, Tchaikovsky, Waxman">
+                      <img class="video__img" data-src="https://i.ytimg.com/vi/QUQGnSC1l7I/hqdefault.jpg" alt="Milan Al-Ashhab: Ernst, Bloch, Milstein, Tchaikovsky, Waxman">
                     </picture>
                   </a>
                   <button class="video__btn" type="button">
                     <span class="visually-hidden">Play</span>
-                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="video__btn-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path class="video__btn-icon" d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+                    <svg width="68" height="48"><use class="video__btn-shape" xlink:href="#youtube-btn"></use></svg>
                   </button>
                 </div>
               </li>
               <li class="video__item gallery__item">
                 <div class="video__media" title="P. I. Tchaikovsky: Melody Op. 42 No. 3">
-                  <a class="video__link" href="https://www.youtube.com/embed/iL5g81LzIXo" target="_blank">
+                  <a class="video__link" href="https://www.youtube.com/embed/iL5g81LzIXo" target="_blank" rel="noreferrer">
                     <picture>
-                      <img class="video__img" src="https://i.ytimg.com/vi/iL5g81LzIXo/hqdefault.jpg" alt="P. I. Tchaikovsky: Melody Op. 42 No. 3">
+                      <img class="video__img" data-src="https://i.ytimg.com/vi/iL5g81LzIXo/hqdefault.jpg" alt="P. I. Tchaikovsky: Melody Op. 42 No. 3">
                     </picture>
                   </a>
                   <button class="video__btn" type="button">
                     <span class="visually-hidden">Play</span>
-                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="video__btn-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path class="video__btn-icon" d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+                    <svg width="68" height="48"><use class="video__btn-shape" xlink:href="#youtube-btn"></use></svg>
                   </button>
                 </div>
               </li>
               <li class="video__item gallery__item">
                 <div class="video__media" title="Ernest Bloch: 'Nigun' from Baal Schem">
-                  <a class="video__link" href="https://www.youtube.com/embed/j7bojHA48VQ" target="_blank">
+                  <a class="video__link" href="https://www.youtube.com/embed/j7bojHA48VQ" target="_blank" rel="noreferrer">
                     <picture>
-                      <img class="video__img" src="https://i.ytimg.com/vi/j7bojHA48VQ/hqdefault.jpg" alt="Ernest Bloch: 'Nigun' from Baal Schem">
+                      <img class="video__img" data-src="https://i.ytimg.com/vi/j7bojHA48VQ/hqdefault.jpg" alt="Ernest Bloch: 'Nigun' from Baal Schem">
                     </picture>
                   </a>
                   <button class="video__btn" type="button">
                     <span class="visually-hidden">Play</span>
-                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="video__btn-shape" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path class="video__btn-icon" d="M 45,24 27,14 27,34" fill="#fff"></path></svg>
+                    <svg width="68" height="48"><use class="video__btn-shape" xlink:href="#youtube-btn"></use></svg>
                   </button>
                 </div>
               </li>
@@ -196,15 +202,15 @@
           </div>
 
           <div class="controls gallery__controls">
-            <button class="gallery__btn gallery__btn--prev controls__btn controls__btn--prev controls__btn--disabled" type="button">
+            <button class="gallery__btn gallery__btn--prev controls__btn js-controls__btn controls__btn--prev controls__btn--disabled" type="button">
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="gallery__btn gallery__btn--next controls__btn controls__btn--next" type="button">
+            <button class="gallery__btn gallery__btn--next controls__btn js-controls__btn controls__btn--next" type="button">
               <span class="visually-hidden">Next</span>
             </button>
           </div>
         </div>
-        <a class="video-block__btn btn" href="https://www.youtube.com/user/scalsky/videos" target="_blank">All videos</a>
+        <a class="video-block__btn btn" href="https://www.youtube.com/user/scalsky/videos" target="_blank" rel="noreferrer">All videos</a>
       </div>
     </section>
 
@@ -213,32 +219,32 @@
         <h2 class="pieces__title block-title">Composer</h2>
         <ul class="pieces__list pieces__list--printed">
           <li class="pieces__item">
-            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1504734" title="Český rozhlas" target="_blank">
+            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1504734" title="Český rozhlas" target="_blank" rel="noreferrer">
               Valse capricieuse for Violin and Piano (2015)
             </a>
           </li>
           <li class="pieces__item">
-            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1612584" title="Český rozhlas" target="_blank">
+            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1612584" title="Český rozhlas" target="_blank" rel="noreferrer">
               The Jongleur for Piano (2015)
             </a>
           </li>
           <li class="pieces__item">
-            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1671346" title="Český rozhlas" target="_blank">
+            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1671346" title="Český rozhlas" target="_blank" rel="noreferrer">
               Variations on a Gypsy melody for Violin (Viola or Flute) and String Orchestra (or Wind Orchestra)
             </a>
           </li>
           <li class="pieces__item">
-            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1671519" title="Český rozhlas" target="_blank">
+            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1671519" title="Český rozhlas" target="_blank" rel="noreferrer">
               Variations on a Gypsy melody for Violin (of Viola) and Piano (2002)
             </a>
           </li>
           <li class="pieces__item">
-            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1671527" title="Český rozhlas" target="_blank">
+            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1671527" title="Český rozhlas" target="_blank" rel="noreferrer">
               Variations on a Gypsy melody for Flute (or Clarinet) and Piano (2002)
             </a>
           </li>
           <li class="pieces__item">
-            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1801351" title="Český rozhlas" target="_blank">
+            <a class="pieces__link" href="https://www.rozhlas.cz/nakladatelstvi/vaznahudba/_zprava/1801351" title="Český rozhlas" target="_blank" rel="noreferrer">
               The Abduction of Scheherazade for Flute and Piano (2001)
             </a>
           </li>
@@ -279,196 +285,196 @@
         <h2 class="gallery__title block-title">Photo gallery</h2>
         <div class="gallery__slider fotogallery-slider">
           <div class="gallery__list-wrapper">
-            <ul class="gallery__list">
-              <li class="gallery__item">
+            <ul class="gallery__list js-photogallery__list">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo29.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo29-min@1x.webp 1x, img/gallery/min/photo29-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo29-min@1x.jpg" srcset="img/gallery/min/photo29-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo29-min@1x.webp 1x, img/gallery/min/photo29-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo29-min@1x.jpg" data-srcset="img/gallery/min/photo29-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo28.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo28-min@1x.webp 1x, img/gallery/min/photo28-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo28-min@1x.jpg" srcset="img/gallery/min/photo28-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo28-min@1x.webp 1x, img/gallery/min/photo28-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo28-min@1x.jpg" data-srcset="img/gallery/min/photo28-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo25.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo25-min@1x.webp 1x, img/gallery/min/photo25-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo25-min@1x.jpg" srcset="img/gallery/min/photo25-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo25-min@1x.webp 1x, img/gallery/min/photo25-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo25-min@1x.jpg" data-srcset="img/gallery/min/photo25-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo24.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo24-min@1x.webp 1x, img/gallery/min/photo24-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo24-min@1x.jpg" srcset="img/gallery/min/photo24-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo24-min@1x.webp 1x, img/gallery/min/photo24-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo24-min@1x.jpg" data-srcset="img/gallery/min/photo24-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo23.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo23-min@1x.webp 1x, img/gallery/min/photo23-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo23-min@1x.jpg" srcset="img/gallery/min/photo23-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo23-min@1x.webp 1x, img/gallery/min/photo23-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo23-min@1x.jpg" data-srcset="img/gallery/min/photo23-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo19.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo19-min@1x.webp 1x, img/gallery/min/photo19-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo19-min@1x.jpg" srcset="img/gallery/min/photo19-min@2x.jpg 2x" alt="&copy; Kateřina Hager">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo19-min@1x.webp 1x, img/gallery/min/photo19-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo19-min@1x.jpg" data-srcset="img/gallery/min/photo19-min@2x.jpg 2x" alt="&copy; Kateřina Hager">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo18.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo18-min@1x.webp 1x, img/gallery/min/photo18-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo18-min@1x.jpg" srcset="img/gallery/min/photo18-min@2x.jpg 2x" alt="&copy; Kateřina Hager">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo18-min@1x.webp 1x, img/gallery/min/photo18-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo18-min@1x.jpg" data-srcset="img/gallery/min/photo18-min@2x.jpg 2x" alt="&copy; Kateřina Hager">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo17.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo17-min@1x.webp 1x, img/gallery/min/photo17-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo17-min@1x.jpg" srcset="img/gallery/min/photo17-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo17-min@1x.webp 1x, img/gallery/min/photo17-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo17-min@1x.jpg" data-srcset="img/gallery/min/photo17-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo1.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo1-min@1x.webp 1x, img/gallery/min/photo1-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo1-min@1x.jpg" srcset="img/gallery/min/photo1-min@2x.jpg 2x" alt="Se Serge Baudo na festivalu Pražské jaro 2007 photo &copy; Zdenek Chrapek PJ">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo1-min@1x.webp 1x, img/gallery/min/photo1-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo1-min@1x.jpg" data-srcset="img/gallery/min/photo1-min@2x.jpg 2x" alt="Se Serge Baudo na festivalu Pražské jaro 2007 photo &copy; Zdenek Chrapek PJ">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo3.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo3-min@1x.webp 1x, img/gallery/min/photo3-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo3-min@1x.jpg" srcset="img/gallery/min/photo3-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo3-min@1x.webp 1x, img/gallery/min/photo3-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo3-min@1x.jpg" data-srcset="img/gallery/min/photo3-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo5.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo5-min@1x.webp 1x, img/gallery/min/photo5-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo5-min@1x.jpg" srcset="img/gallery/min/photo5-min@2x.jpg 2x" alt="S Vladimirem Ashkenazym photo &copy; Ondrej Melecky">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo5-min@1x.webp 1x, img/gallery/min/photo5-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo5-min@1x.jpg" data-srcset="img/gallery/min/photo5-min@2x.jpg 2x" alt="S Vladimirem Ashkenazym photo &copy; Ondrej Melecky">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo9.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo9-min@1x.webp 1x, img/gallery/min/photo9-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo9-min@1x.jpg" srcset="img/gallery/min/photo9-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo9-min@1x.webp 1x, img/gallery/min/photo9-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo9-min@1x.jpg" data-srcset="img/gallery/min/photo9-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo10.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo10-min@1x.webp 1x, img/gallery/min/photo10-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo10-min@1x.jpg" srcset="img/gallery/min/photo10-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo10-min@1x.webp 1x, img/gallery/min/photo10-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo10-min@1x.jpg" data-srcset="img/gallery/min/photo10-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo11.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo11-min@1x.webp 1x, img/gallery/min/photo11-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo11-min@1x.jpg" srcset="img/gallery/min/photo11-min@2x.jpg 2x" alt="s Plzeňskou filharmonií">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo11-min@1x.webp 1x, img/gallery/min/photo11-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo11-min@1x.jpg" data-srcset="img/gallery/min/photo11-min@2x.jpg 2x" alt="s Plzeňskou filharmonií">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo12.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo12-min@1x.webp 1x, img/gallery/min/photo12-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo12-min@1x.jpg" srcset="img/gallery/min/photo12-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo12-min@1x.webp 1x, img/gallery/min/photo12-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo12-min@1x.jpg" data-srcset="img/gallery/min/photo12-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo13.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo13-min@1x.webp 1x, img/gallery/min/photo13-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo13-min@1x.jpg" srcset="img/gallery/min/photo13-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo13-min@1x.webp 1x, img/gallery/min/photo13-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo13-min@1x.jpg" data-srcset="img/gallery/min/photo13-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo14.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo14-min@1x.webp 1x, img/gallery/min/photo14-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo14-min@1x.jpg" srcset="img/gallery/min/photo14-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo14-min@1x.webp 1x, img/gallery/min/photo14-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo14-min@1x.jpg" data-srcset="img/gallery/min/photo14-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo15.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo15-min@1x.webp 1x, img/gallery/min/photo15-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo15-min@1x.jpg" srcset="img/gallery/min/photo15-min@2x.jpg 2x" alt="&copy; Lukáš Kuta">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo15-min@1x.webp 1x, img/gallery/min/photo15-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo15-min@1x.jpg" data-srcset="img/gallery/min/photo15-min@2x.jpg 2x" alt="&copy; Lukáš Kuta">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo16.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo16-min@1x.webp 1x, img/gallery/min/photo16-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo16-min@1x.jpg" srcset="img/gallery/min/photo16-min@2x.jpg 2x" alt="&copy; Lukáš Kuta">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo16-min@1x.webp 1x, img/gallery/min/photo16-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo16-min@1x.jpg" data-srcset="img/gallery/min/photo16-min@2x.jpg 2x" alt="&copy; Lukáš Kuta">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo26.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo26-min@1x.webp 1x, img/gallery/min/photo26-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo26-min@1x.jpg" srcset="img/gallery/min/photo26-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo26-min@1x.webp 1x, img/gallery/min/photo26-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo26-min@1x.jpg" data-srcset="img/gallery/min/photo26-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo27.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo27-min@1x.webp 1x, img/gallery/min/photo27-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo27-min@1x.jpg" srcset="img/gallery/min/photo27-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo27-min@1x.webp 1x, img/gallery/min/photo27-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo27-min@1x.jpg" data-srcset="img/gallery/min/photo27-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo20.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo20-min@1x.webp 1x, img/gallery/min/photo20-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo20-min@1x.jpg" srcset="img/gallery/min/photo20-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo20-min@1x.webp 1x, img/gallery/min/photo20-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo20-min@1x.jpg" data-srcset="img/gallery/min/photo20-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo21.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo21-min@1x.webp 1x, img/gallery/min/photo21-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo21-min@1x.jpg" srcset="img/gallery/min/photo21-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo21-min@1x.webp 1x, img/gallery/min/photo21-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo21-min@1x.jpg" data-srcset="img/gallery/min/photo21-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
-              <li class="gallery__item">
+              <li class="gallery__item js-gallery__item">
                 <a class="gallery__link" href="img/gallery/photo22.jpg">
                   <picture class="gallery__pic">
-                    <source type="image/webp" srcset="img/gallery/min/photo22-min@1x.webp 1x, img/gallery/min/photo22-min@2x.webp 2x">
-                    <img class="gallery__img" src="img/gallery/min/photo22-min@1x.jpg" srcset="img/gallery/min/photo22-min@2x.jpg 2x" alt="">
+                    <source type="image/webp" data-srcset="img/gallery/min/photo22-min@1x.webp 1x, img/gallery/min/photo22-min@2x.webp 2x">
+                    <img class="gallery__img" data-src="img/gallery/min/photo22-min@1x.jpg" data-srcset="img/gallery/min/photo22-min@2x.jpg 2x" alt="">
                   </picture>
                 </a>
               </li>
@@ -476,14 +482,16 @@
           </div>
 
           <div class="controls gallery__controls">
-            <button class="gallery__btn gallery__btn--prev controls__btn controls__btn--prev controls__btn--disabled" type="button">
+            <button class="gallery__btn gallery__btn--prev controls__btn js-controls__btn controls__btn--prev controls__btn--disabled" type="button">
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="gallery__btn gallery__btn--next controls__btn controls__btn--next" type="button">
+            <button class="gallery__btn gallery__btn--next controls__btn js-controls__btn controls__btn--next" type="button">
               <span class="visually-hidden">Next</span>
             </button>
           </div>
         </div>
+
+        <button class="js-gallery__open-full-btn btn">Open photo gallery</button>
       </div>
     </section>
 
@@ -495,8 +503,8 @@
             <li class="cd__item">
               <a href="img/cd/cd-rach-busoni.jpg" class="cd__link">
                 <picture class="cd__pic">
-                  <source srcset="img/cd/cd-rach-busoni.webp" type="image/webp">
-                  <img class="cd__img" src="img/cd/cd-rach-busoni.jpg" alt="CD Rachmaninov Busoni">
+                  <source data-srcset="img/cd/cd-rach-busoni.webp" type="image/webp">
+                  <img class="cd__img" data-src="img/cd/cd-rach-busoni.jpg" alt="CD Rachmaninov Busoni">
                 </picture>
                 <p class="cd__descr">
                   <b>S. Rachmaninov: Concerto/min No. 3 D minor, op. 30</b> <br>
@@ -519,8 +527,8 @@
             <li class="cd__item">
               <a href="img/cd/cd-smetana.jpg" class="cd__link">
                 <picture class="cd__pic">
-                  <source srcset="img/cd/cd-smetana.jpg">
-                  <img class="cd__img" src="img/cd/cd-smetana.jpg" alt="CD Smetana">
+                  <source data-srcset="img/cd/cd-smetana.jpg">
+                  <img class="cd__img" data-src="img/cd/cd-smetana.jpg" alt="CD Smetana">
                 </picture>
                 <p class="cd__descr">
                   <b>Petr Jiříkovský, Michal Rezek, Jana Macharáčková, Hanuš Bartoň, Adam Skoumal, Daniel Wiesner, Jaromír Klepáč, Aleš Bárta</b>
@@ -535,8 +543,8 @@
             <li class="cd__item">
               <a href="img/cd/cd-schumann.jpg" class="cd__link">
                 <picture class="cd__pic">
-                  <source srcset="img/cd/cd-schumann.webp" type="image/webp">
-                  <img class="cd__img" src="img/cd/cd-schumann.jpg" alt="CD Schumann">
+                  <source data-srcset="img/cd/cd-schumann.webp" type="image/webp">
+                  <img class="cd__img" data-src="img/cd/cd-schumann.jpg" alt="CD Schumann">
                 </picture>
                 <p class="cd__descr">
                   <b>Robert Schumann</b>
@@ -558,8 +566,8 @@
             <li class="cd__item">
               <a href="img/cd/cd-rejcha.jpg" class="cd__link">
                 <picture class="cd__pic">
-                  <source srcset="img/cd/cd-rejcha.webp" type="image/webp">
-                  <img class="cd__img" src="img/cd/cd-rejcha.jpg" alt="CD Rejcha">
+                  <source data-srcset="img/cd/cd-rejcha.webp" type="image/webp">
+                  <img class="cd__img" data-src="img/cd/cd-rejcha.jpg" alt="CD Rejcha">
                 </picture>
                 <p class="cd__descr">
                   <b>Adam Skoumal, Prague Wind Quintet</b>
@@ -576,8 +584,8 @@
             <li class="cd__item">
               <a href="img/cd/cd-dvorak.jpg" class="cd__link">
                 <picture class="cd__pic">
-                  <source srcset="img/cd/cd-dvorak.webp" type="image/webp">
-                  <img class="cd__img" src="img/cd/cd-dvorak.jpg" alt="CD Dvořák">
+                  <source data-srcset="img/cd/cd-dvorak.webp" type="image/webp">
+                  <img class="cd__img" data-src="img/cd/cd-dvorak.jpg" alt="CD Dvořák">
                 </picture>
                 <p class="cd__descr">
                   <b>Milada Čechalová, Stanislav Předota, Adam Skoumal</b>
@@ -595,8 +603,8 @@
             <li class="cd__item">
               <a href="img/cd/cd-janacek.jpg" class="cd__link">
                 <picture class="cd__pic">
-                  <source srcset="img/cd/cd-janacek.webp" type="image/webp">
-                  <img class="cd__img" src="img/cd/cd-janacek.jpg" alt="CD Janáček">
+                  <source data-srcset="img/cd/cd-janacek.webp" type="image/webp">
+                  <img class="cd__img" data-src="img/cd/cd-janacek.jpg" alt="CD Janáček">
                 </picture>
                 <p class="cd__descr">
                   <b>Eva Štruplová, Stanislav Předota, Adam Skoumal</b>
@@ -624,24 +632,24 @@
           <li class="download__item">
             <a class="download__link" href="img/download/photo17-orig.jpg" title="&copy; Lukáš Kuta">
               <picture>
-                <source type="image/webp" srcset="img/gallery/min/photo17-min@1x.webp 1x, img/gallery/min/photo17-min@2x.webp 2x">
-                <img src="img/gallery/min/photo17-min@1x.jpg" srcset="img/gallery/min/photo17-min@2x.jpg 2x" width="235" height="176" alt="&copy; Lukáš Kuta">
+                <source type="image/webp" data-srcset="img/gallery/min/photo17-min@1x.webp 1x, img/gallery/min/photo17-min@2x.webp 2x">
+                <img data-src="img/gallery/min/photo17-min@1x.jpg" data-srcset="img/gallery/min/photo17-min@2x.jpg 2x" width="235" height="176" alt="&copy; Lukáš Kuta">
               </picture>
             </a>
           </li>
           <li class="download__item">
             <a class="download__link" href="img/download/photo28-orig.jpg">
               <picture>
-                <source type="image/webp" srcset="img/gallery/min/photo28-min@1x.webp 1x, img/gallery/min/photo28-min@2x.webp 2x">
-                <img src="img/gallery/min/photo28-min@1x.jpg" srcset="img/gallery/min/photo28-min@2x.jpg 2x" width="235" height="176" alt="">
+                <source type="image/webp" data-srcset="img/gallery/min/photo28-min@1x.webp 1x, img/gallery/min/photo28-min@2x.webp 2x">
+                <img data-src="img/gallery/min/photo28-min@1x.jpg" data-srcset="img/gallery/min/photo28-min@2x.jpg 2x" width="235" height="176" alt="">
               </picture>
             </a>
           </li>
           <li class="download__item">
             <a class="download__link" href="img/download/photo29-orig.jpg">
               <picture>
-                <source type="image/webp" srcset="img/gallery/min/photo29-min@1x.webp 1x, img/gallery/min/photo29-min@2x.webp 2x">
-                <img src="img/gallery/min/photo29-min@1x.jpg" srcset="img/gallery/min/photo29-min@2x.jpg 2x" width="235" height="176" alt="">
+                <source type="image/webp" data-srcset="img/gallery/min/photo29-min@1x.webp 1x, img/gallery/min/photo29-min@2x.webp 2x">
+                <img data-src="img/gallery/min/photo29-min@1x.jpg" data-srcset="img/gallery/min/photo29-min@2x.jpg 2x" width="235" height="176" alt="">
               </picture>
             </a>
           </li>
@@ -674,6 +682,6 @@
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="js/script.js" async></script>
 </body>
 </html>
