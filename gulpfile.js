@@ -3,14 +3,15 @@ const gulp = require('gulp'),
       del = require('del'),
       // newer = require('gulp-newer'),
       // imagemin = require('gulp-imagemin'),
-      // cssnano = require('cssnano'),
       rename = require('gulp-rename'),
       plumber = require('gulp-plumber'),
       sass = require('gulp-sass'),
+      csso = require('gulp-csso'),
       sourcemaps = require('gulp-sourcemaps'),
       postcss = require('gulp-postcss'),
       autoprefixer = require('autoprefixer'),
-      babel = require('gulp-babel');
+      babel = require('gulp-babel'),
+      uglify = require('gulp-uglify')
 
 function browserSync(done) {
   browsersync.init({
@@ -45,6 +46,8 @@ function css() {
     .pipe(postcss([
       autoprefixer()
     ]))
+    .pipe(csso())
+    .pipe(rename('style.min.css'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./src/css/'))
     .pipe(browsersync.stream());
@@ -56,7 +59,8 @@ function scripts() {
   .pipe(babel({
     presets: ['@babel/env']
   }))
-  .pipe(rename('script.js'))
+  .pipe(uglify())
+  .pipe(rename('script.min.js'))
   .pipe(gulp.dest('./src/js/'));
 }
 
