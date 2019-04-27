@@ -3,16 +3,22 @@
   grid-template-columns: repeat(auto-fill, minmax(150px, auto));
   grid-gap: 30px;
   @include listReset;
+
+  @media #{$max-sm} {
+    justify-content: center;
+  }
 }
 
 .cd__link {
-  display: block;
+  display: inline-flex;
 
   border: 1px solid rgba(#ffffff, 0.5);
 }
 
-.cd__pic {
+.cd__img {
   display: block;
+  width: auto;
+  max-width: 100%;
 }
 
 .cd__descr {

@@ -2,7 +2,7 @@
   position: relative;
 
   padding: 0 55px;
-  // margin-bottom: 50px;
+  margin-bottom: 50px;
 
   @media #{$max-sm} {
     margin-bottom: 0;
@@ -78,4 +78,18 @@
     font-size: 12px;
     line-height: 14px;
   }
+}
+
+.full-gallery-popup {
+  padding: 15px 0;
+}
+
+.full-gallery-popup .gallery__list {
+  flex-wrap: wrap;
+}
+
+.full-gallery-popup .gallery__item {
+  width: 20%;
+  padding: 0 15px;
+  margin: 0 0 15px;
 }

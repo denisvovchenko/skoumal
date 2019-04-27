@@ -1,7 +1,12 @@
 const gulp = require('gulp'),
       browsersync = require('browser-sync').create(),
       del = require('del'),
+<<<<<<< HEAD
       imagemin = require('gulp-imagemin'),
+=======
+      // newer = require('gulp-newer'),
+      // imagemin = require('gulp-imagemin'),
+>>>>>>> 52cc472a9aeadcef43c8813a8f619274d2870f1e
       rename = require('gulp-rename'),
       plumber = require('gulp-plumber'),
       sass = require('gulp-sass'),
@@ -10,10 +15,14 @@ const gulp = require('gulp'),
       postcss = require('gulp-postcss'),
       autoprefixer = require('autoprefixer'),
       babel = require('gulp-babel'),
+<<<<<<< HEAD
       uglify = require('gulp-uglify'),
       posthtml = require('gulp-posthtml'),
       include = require('posthtml-include'),
       webp = require('gulp-webp');
+=======
+      uglify = require('gulp-uglify')
+>>>>>>> 52cc472a9aeadcef43c8813a8f619274d2870f1e
 
 function browserSync(done) {
   browsersync.init({
@@ -71,6 +80,7 @@ function scripts() {
   }))
   .pipe(uglify())
   .pipe(rename('script.min.js'))
+<<<<<<< HEAD
   .pipe(gulp.dest('build/js/'));
 }
 
@@ -100,14 +110,27 @@ function watchFiles() {
   gulp.watch('src/**/*.html', html);
   gulp.watch('src/scss/**/*', css);
   gulp.watch('js/**/*', scripts);
+=======
+  .pipe(gulp.dest('./src/js/'));
+}
+
+function watchFiles() {
+  gulp.watch('./src/index.html', html);
+  gulp.watch('./src/scss/**/*', css);
+  gulp.watch('./src/js/app.js', scripts);
+>>>>>>> 52cc472a9aeadcef43c8813a8f619274d2870f1e
 }
 
 const buildImages = gulp.series(imagesClean, images, createWebp);
 const build = gulp.series(clean, css, scripts, html);
 const watch = gulp.parallel(watchFiles, browserSync);
 
+<<<<<<< HEAD
 exports.images = buildImages;
 exports.clean = clean;
+=======
+exports.js = scripts;
+>>>>>>> 52cc472a9aeadcef43c8813a8f619274d2870f1e
 exports.css = css;
 exports.build = build;
 exports.watch = watch;
