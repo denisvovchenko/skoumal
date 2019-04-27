@@ -6,6 +6,51 @@ let body = document.querySelector('body');
 // get window height
 const getWindowHeight = () => document.documentElement.clientHeight;
 
+const createElement = (props) => {
+  let element = document.createElement(props.element || 'div');
+
+  for (let attr in props.attributes) {
+    element.setAttribute(attr, props.attributes[attr]);
+  }
+
+  let parent = props.parentElement;
+
+  if (parent) {
+    parent.appendChild(element);
+  }
+
+  return element;
+}
+
+// const getAllChildren = (block) => {
+//   let result = [];
+
+//   if (block.children.length == 0) {
+//     result.push(block.cloneNode(true));
+//   }
+
+//   for (let i = 0; i < block.children.length; i++) {
+//     let element = getAllChildren(block.children[i]);
+
+
+//     result.push(element);
+//   }
+
+//   return result;
+// }
+
+const getLazyImages = () => {
+  return document.querySelectorAll('[data-src], [data-srcset]');
+}
+
+// const changeBemBlock = (block, name) => {
+//   // var oldClasses = block.classList;
+//   var elements = getAllChildren(block);
+
+//   show(elements);
+
+// }
+
 // Navigation
 {
   const setActiveNavItem = (link, section) => {
@@ -95,13 +140,12 @@ const createPopup = block => {
 }
 
 // Gallery slider
-
 const gallerySlider = (gallery, props) => {
   let windowWidth = document.documentElement.clientWidth;
   let galleryList = gallery.querySelector('.gallery__list');
   let galleryWidth = galleryList.offsetWidth;
   let galleryItems = gallery.querySelectorAll('.gallery__item');
-  let itemMargin = parseInt(window.getComputedStyle(galleryItems[0])['margin-right']);
+  let itemMargin = Math.round(parseInt(window.getComputedStyle(galleryItems[0])['margin-right']));
 
   let itemsCount = props.count || 4;
   let btnPrev = gallery.querySelector('.gallery__btn--prev');
@@ -116,7 +160,7 @@ const gallerySlider = (gallery, props) => {
   }
 
   let gap = 30;
-  let itemWidth = (galleryWidth / itemsCount) - (gap * (itemsCount - 1)) / 3;
+  let itemWidth = Math.round((galleryWidth / itemsCount) - (gap * (itemsCount - 1)) / 3);
 
   galleryItems.forEach((item) => {
     item.style.width = `${itemWidth}px`;
@@ -125,6 +169,8 @@ const gallerySlider = (gallery, props) => {
   let moving = 0;
 
   btnPrev.addEventListener('click', () => {
+    moving = Math.round(moving);
+
     if (moving >= 0) return;
 
     btnNext.classList.remove('controls__btn--disabled');
@@ -138,6 +184,8 @@ const gallerySlider = (gallery, props) => {
   });
 
   btnNext.addEventListener('click', () => {
+    moving = Math.round(moving);
+
     if (Math.abs(moving) >= itemWidth * galleryList.children.length + itemMargin * (galleryList.children.length - 1) - galleryWidth) return;
 
     btnPrev.classList.remove('controls__btn--disabled');
@@ -146,7 +194,7 @@ const gallerySlider = (gallery, props) => {
 
     galleryList.style.transform = `translate(${moving}px)`;
 
-    if (Math.abs(moving) >= itemWidth * galleryList.children.length + itemMargin * (gallery.children.length - 1) - galleryWidth) {
+    if (Math.abs(moving) >= itemWidth * galleryList.children.length + itemMargin * (galleryList.children.length - 1) - galleryWidth) {
       btnNext.classList.add('controls__btn--disabled');
     }
   });
@@ -167,7 +215,6 @@ window.addEventListener('resize', () => {
 // Gallery popup
 {
   const imagePopup = () => {
-
     let galleryModalBlock = document.createElement('div');
     galleryModalBlock.classList = 'gallery-popup__block';
 
@@ -212,8 +259,9 @@ window.addEventListener('resize', () => {
         e.preventDefault();
 
         currentElement = link.closest('.gallery__item');
-        let imageSrc = link.getAttribute('href');
-        let imageWebpSrc = link.querySelector('source').srcset;
+        let imageSrc = getFullSizePath(link.querySelector('img').getAttribute('src'));
+        let imageWebpSrc = getFullSizePath(link.querySelector('source').getAttribute('srcset'));
+
         modalImage.src = imageSrc;
         modalSource.srcset = imageWebpSrc;
         let image = link.querySelector('.gallery__img');
@@ -230,8 +278,21 @@ window.addEventListener('resize', () => {
       });
     });
 
-    // Switch photo in popup
+    // convert img src from min-version to full
+    const getFullSizePath = (src) => {
 
+      if (html.clientWidth < 768) {
+        return src.replace('@1x', '@2x');
+      }
+
+      let result = src.replace('-min', '');
+      result = result.replace('min/', '');
+      result = result.replace('@1x', '');
+
+      return result;
+    }
+
+    // Switch photo in popup
     const movePopupPhotos = e => {
       let target = e.target;
 
@@ -244,8 +305,8 @@ window.addEventListener('resize', () => {
         currentElement = currentElement.previousElementSibling;
 
         let modalDescrText = currentElement.querySelector('.gallery__img').alt;
-        modalSource.srcset = currentElement.querySelector('.gallery__img').previousElementSibling.srcset;
-        modalImage.src = currentElement.querySelector('.gallery__img').src;
+        modalSource.srcset = getFullSizePath(currentElement.querySelector('.gallery__img').previousElementSibling.getAttribute('srcset'));
+        modalImage.src = getFullSizePath(currentElement.querySelector('.gallery__img').getAttribute('src'));
         modalDescr.textContent = modalDescrText;
 
       } else if (target.classList.contains('modal__btn--next') || e.keyCode === 39) {
@@ -258,8 +319,8 @@ window.addEventListener('resize', () => {
 
         let modalDescrText = currentElement.querySelector('.gallery__img').alt;
 
-        modalSource.srcset = currentElement.querySelector('.gallery__img').previousElementSibling.srcset;
-        modalImage.src = currentElement.querySelector('.gallery__img').src;
+        modalSource.srcset = getFullSizePath(currentElement.querySelector('.gallery__img').previousElementSibling.getAttribute('srcset'));
+        modalImage.src = getFullSizePath(currentElement.querySelector('.gallery__img').getAttribute('src'));
         modalDescr.textContent = modalDescrText;
       }
     }
@@ -432,4 +493,78 @@ window.addEventListener('resize', () => {
     navList.classList.toggle('nav__list--show');
     langList.classList.toggle('lang__list--show');
   })
+}
+
+// lazy loading
+const lazy = (images) => {
+  images.forEach((img) => {
+    let imgPos = img.getBoundingClientRect();
+
+    if (imgPos.top < html.clientHeight + 200 && imgPos.left < html.clientWidth + 200) {
+
+      if (img.tagName === 'IMG' && img.getAttribute('data-src') != null) {
+        let src = img.getAttribute('data-src');
+        let srcset = img.getAttribute('data-srcset');
+
+        img.setAttribute('src', src);
+        img.removeAttribute('data-src');
+
+        if (srcset) {
+          img.setAttribute('srcset', srcset);
+          img.removeAttribute('data-srcset');
+        }
+
+        if (img.previousElementSibling && img.previousElementSibling.tagName == 'SOURCE') {
+          let source = img.previousElementSibling;
+          let srcset = source.getAttribute('data-srcset');
+          source.setAttribute('srcset', srcset)
+          source.removeAttribute('data-srcset');
+        }
+      }
+    }
+  });
+}
+
+{
+  let images = getLazyImages();
+
+  lazy(images);
+
+  window.addEventListener('scroll', (e) => {
+    lazy(images);
+  });
+
+  let controlButtons = document.querySelectorAll('.js-controls__btn');
+  controlButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      lazy(images);
+    });
+  });
+}
+
+// photo gallery
+{
+  let galleryList = document.querySelector('.js-photogallery__list').cloneNode(true);
+  let galleryItems = galleryList.querySelectorAll('.js-gallery__item');
+  galleryItems.forEach((item) => {
+    item.style = '';
+  });
+
+  let openGalleryBtn = document.querySelector('.js-gallery__open-full-btn');
+
+  let gallery = createElement({
+    element: 'div',
+    attributes: {
+      class: 'full-gallery-popup'
+    }
+  });
+
+  gallery.appendChild(galleryList);
+
+  // changeBemBlock(gallery, 'full-gallery-popup');
+
+  openGalleryBtn.addEventListener('click', (e) => {
+    createPopup(gallery);
+    lazy( getLazyImages() );
+  });
 }

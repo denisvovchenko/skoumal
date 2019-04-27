@@ -10,6 +10,7 @@ const gulp = require('gulp'),
       postcss = require('gulp-postcss'),
       autoprefixer = require('autoprefixer'),
       babel = require('gulp-babel'),
+      uglify = require('gulp-uglify'),
       posthtml = require('gulp-posthtml'),
       include = require('posthtml-include'),
       webp = require('gulp-webp');
@@ -64,10 +65,11 @@ function css() {
 
 function scripts() {
   return gulp
-  .src('./src/js/script.js')
+  .src('src/js/script.js')
   .pipe(babel({
     presets: ['@babel/env']
   }))
+  .pipe(uglify())
   .pipe(rename('script.min.js'))
   .pipe(gulp.dest('build/js/'));
 }
@@ -94,22 +96,19 @@ function createWebp() {
     .pipe(gulp.dest('build/img/'));
 }
 
-const js = gulp.series(scripts);
-
 function watchFiles() {
   gulp.watch('src/**/*.html', html);
   gulp.watch('src/scss/**/*', css);
-  gulp.watch('js/**/*', js);
+  gulp.watch('js/**/*', scripts);
 }
 
 const buildImages = gulp.series(imagesClean, images, createWebp);
-const build = gulp.series(clean, css, js, html);
+const build = gulp.series(clean, css, scripts, html);
 const watch = gulp.parallel(watchFiles, browserSync);
 
 exports.images = buildImages;
 exports.clean = clean;
 exports.css = css;
-exports.js = js;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
