@@ -66,11 +66,13 @@ function css() {
 function scripts() {
   return gulp
   .src('src/js/script.js')
+  .pipe(sourcemaps.init())
   .pipe(babel({
     presets: ['@babel/env']
   }))
   .pipe(uglify())
   .pipe(rename('script.min.js'))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest('build/js/'));
 }
 
@@ -80,7 +82,7 @@ function imagesClean() {
 
 function images() {
   return gulp
-    .src('src/img/**/*.{jpg,png,svg}')
+    .src('src/img/**/*.{jpg,png,svg,ico}')
     .pipe(imagemin([
       imagemin.jpegtran({progressive: true}),
       imagemin.optipng({optimizationLevel: 3}),
@@ -99,7 +101,7 @@ function createWebp() {
 function watchFiles() {
   gulp.watch('src/**/*.html', html);
   gulp.watch('src/scss/**/*', css);
-  gulp.watch('js/**/*', scripts);
+  gulp.watch('src/js/**/*', scripts);
 }
 
 const buildImages = gulp.series(imagesClean, images, createWebp);

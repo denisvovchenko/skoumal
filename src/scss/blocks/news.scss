@@ -1,0 +1,45 @@
+.news {
+  @media #{$max-md} {
+    grid-column: 1;
+  }
+}
+
+.news__list {
+  @include listReset();
+
+  padding: 30px;
+
+  background: rgba(#ffffff, 0.9);
+}
+
+.news__item {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+
+  color: #000000;
+  border-bottom: 1px solid #aaa;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.news__date {
+  display: block;
+  margin-bottom: 5px;
+
+  font-size: 14px;
+  font-style: italic;
+
+  color: #444;
+}
+
+.news__place {
+  margin: 0 0 5px;
+}
+
+.news__text {
+  margin: 0;
+
+  font-size: 20px;
+}
