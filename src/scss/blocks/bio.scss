@@ -19,7 +19,6 @@
   grid-template-columns: 60% 1fr;
   grid-template-rows: auto 1fr;
   grid-gap: 30px;
-  margin-bottom: 25px;
   overflow: hidden;
 
 
@@ -38,11 +37,6 @@
   }
 }
 
-.news {
-  grid-column: 2;
-  grid-row: 1;
-}
-
 .bio__text {
   &:first-child {
     margin-top: 0;
@@ -58,6 +52,10 @@
   transition: 0.4s ease-in-out;
 }
 
+.bio__btn {
+  margin-top: 25px;
+}
+
 .bio__img-wrapper {
   grid-column: 2;
   grid-row: 2;
@@ -66,7 +64,6 @@
     display: none;
   }
 }
-
 
 .bio-popup__block {
   display: flex;
