@@ -28,34 +28,9 @@ const createElement = (props) => {
   return element;
 }
 
-// const getAllChildren = (block) => {
-//   let result = [];
-
-//   if (block.children.length == 0) {
-//     result.push(block.cloneNode(true));
-//   }
-
-//   for (let i = 0; i < block.children.length; i++) {
-//     let element = getAllChildren(block.children[i]);
-
-
-//     result.push(element);
-//   }
-
-//   return result;
-// }
-
 const getLazyImages = () => {
   return document.querySelectorAll('[data-src], [data-srcset]');
 }
-
-// const changeBemBlock = (block, name) => {
-//   // var oldClasses = block.classList;
-//   var elements = getAllChildren(block);
-
-//   show(elements);
-
-// }
 
 // Navigation
 {
@@ -97,17 +72,16 @@ const createPopup = (block) => {
     attributes: {
       class: 'modal__overlay',
     },
+    onclick(e) {
+      e.preventDefault();
+
+      let target = e.target;
+
+      if (!target.classList.contains('modal__overlay')) return;
+
+      popupOverlay.remove();
+    }
   });
-
-  popupOverlay.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    let target = e.target;
-
-    if (!target.classList.contains('modal__overlay')) return;
-
-    popupOverlay.remove();
-  }, true);
 
   let popupWindow = createElement({
     element: 'div',
@@ -140,31 +114,33 @@ const createPopup = (block) => {
   });
   btnAllyContent.innerHTML = 'Zavřít';
 
-  // closeBtn.addEventListener('click', e => {
-
-  // });
-
   let popupInner = block;
 
   popupWindow.appendChild(popupInner);
   body.appendChild(popupOverlay);
-  body.classList.add('modal-open');
 
-  // Fix in the future!!!
-  popupOverlay.style.display = 'flex';
 
-  document.addEventListener('keydown', (e) => {
-    let photoPopup = document.querySelector('.gallery-popup__block');
-
-    if (e.keyCode === 27) {
-      if (photoPopup) {
-        photoPopup.closest('.modal__overlay').remove();
-      } else {
-        popupOverlay.remove();
-      }
-    }
-  });
 }
+
+// remove popup
+document.addEventListener('keydown', (e) => {
+  let photoPopup = document.querySelector('.gallery-popup__block');
+  let fullGalleryPopup = document.querySelector('.full-gallery-popup');
+
+  if (!photoPopup && !fullGalleryPopup) {
+    return;
+  }
+
+  if (e.keyCode === 27) {
+    if (photoPopup) {
+      photoPopup.closest('.modal__overlay').remove();
+
+    } else if (fullGalleryPopup) {
+      show(document.querySelector('.modal__overlay'));
+      document.querySelector('.modal__overlay').remove();
+    }
+  }
+});
 
 // Gallery slider
 const gallerySlider = (gallery, props) => {
@@ -337,22 +313,6 @@ const imagePopup = function() {
     });
   }
 
-  let modalButtons = galleryModalBlock.querySelectorAll('.modal__btn');
-
-  modalButtons.forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
-      movePopupPhotos(e);
-    });
-  });
-
-  document.addEventListener('keydown', e => {
-    let galleryExists = document.querySelector('.gallery-popup__block');
-
-    if ((e.keyCode != 37 && e.keyCode != 39) || !galleryExists) return;
-
-    movePopupPhotos(e);
-  });
-
   let imageLinks = document.querySelectorAll('.gallery__link');
 
   setImageLinks(imageLinks);
@@ -396,6 +356,22 @@ const imagePopup = function() {
       setPopupImage(currentElement);
     }
   }
+
+  let modalButtons = galleryModalBlock.querySelectorAll('.modal__btn');
+
+  modalButtons.forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      movePopupPhotos(e);
+    });
+  });
+
+  document.addEventListener('keydown', e => {
+    let galleryExists = document.querySelector('.gallery-popup__block');
+
+    if ((e.keyCode != 37 && e.keyCode != 39) || !galleryExists) return;
+
+    movePopupPhotos(e);
+  });
 
   const setPopupImage = (currentElement) => {
 
@@ -447,18 +423,18 @@ const imagePopup = function() {
 
     gallery.appendChild(galleryList);
 
-    // changeBemBlock(gallery, 'full-gallery-popup');
+    let links = gallery.querySelectorAll('.gallery__link');
+
+    setImageLinks(links);
 
     let openGalleryBtn = document.querySelector('.js-gallery__open-full-btn');
 
     openGalleryBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+
       createPopup(gallery);
 
       lazy( getLazyImages() );
-
-      let links = gallery.querySelectorAll('.gallery__link');
-
-      setImageLinks(links);
     });
   }
 }
@@ -655,6 +631,7 @@ const lazy = (images) => {
   });
 }
 
+// execute lazy
 {
   let images = getLazyImages();
 
