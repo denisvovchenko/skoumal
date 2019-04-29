@@ -56,7 +56,7 @@
     grid-auto-flow: column;
   }
 
-  @media #{$max-sm} {
+  @media #{$max-md} {
     grid-template-columns: 1fr;
     margin-bottom: 10px;
   }

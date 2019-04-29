@@ -14,6 +14,23 @@
   @include listReset;
 }
 
+.video__item {
+  max-width: 313px;
+  max-height: 250px;
+
+  @media #{$max-xl} {
+    max-width: 253px;
+  }
+
+  @media #{$max-lg} {
+    max-width: 280px;
+  }
+
+  @media #{$max-md} {
+    max-width: 480px;
+  }
+}
+
 .video__media {
   position: relative;
 
