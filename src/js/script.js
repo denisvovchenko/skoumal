@@ -57,6 +57,8 @@ const getLazyImages = () => {
 
     let section = document.querySelector('#' + id);
 
+    if (!section) return;
+
     setActiveNavItem(link, section);
 
     window.addEventListener('scroll', e => {

@@ -15,8 +15,10 @@
 
   <svg viewBox="0 0 68 48" width="68" height="48" style="display: none;">
     <symbol id="youtube-btn"><path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></symbol>
-    
+
     <symbol id="icon-flag-en" viewBox="0 0 512 512"><rect y="85.333" style="fill:#F0F0F0;" width="512" height="341.337"/><polygon style="fill:#D80027;" points="288,85.33 224,85.33 224,223.996 0,223.996 0,287.996 224,287.996 224,426.662 288,426.662 288,287.996 512,287.996 512,223.996 288,223.996"/><polygon style="fill:#0052B4;" points="393.785,315.358 512,381.034 512,315.358"/><polygon style="fill:#0052B4;" points="311.652,315.358 512,426.662 512,395.188 368.307,315.358"/><polygon style="fill:#0052B4;" points="458.634,426.662 311.652,344.998 311.652,426.662"/><polygon style="fill:#F0F0F0;" points="311.652,315.358 512,426.662 512,395.188 368.307,315.358"/><polygon style="fill:#D80027;" points="311.652,315.358 512,426.662 512,395.188 368.307,315.358"/><polygon style="fill:#0052B4;" points="90.341,315.356 0,365.546 0,315.356"/><polygon style="fill:#0052B4;" points="200.348,329.51 200.348,426.661 25.491,426.661"/><polygon style="fill:#D80027;" points="143.693,315.358 0,395.188 0,426.662 0,426.662 200.348,315.358"/><polygon style="fill:#0052B4;" points="118.215,196.634 0,130.958 0,196.634"/><polygon style="fill:#0052B4;" points="200.348,196.634 0,85.33 0,116.804 143.693,196.634"/><polygon style="fill:#0052B4;" points="53.366,85.33 200.348,166.994 200.348,85.33"/><polygon style="fill:#F0F0F0;" points="200.348,196.634 0,85.33 0,116.804 143.693,196.634"/><polygon style="fill:#D80027;" points="200.348,196.634 0,85.33 0,116.804 143.693,196.634"/><polygon style="fill:#0052B4;" points="421.659,196.636 512,146.446 512,196.636"/><polygon style="fill:#0052B4;" points="311.652,182.482 311.652,85.331 486.509,85.331"/><polygon style="fill:#D80027;" points="368.307,196.634 512,116.804 512,85.33 512,85.33 311.652,196.634 "/></symbol>
+
+    <symbol id="icon-flag-de" viewBox="0 0 512 512" width="20" height="20"><path style="fill:#464655;" d="M512,200.093H0V97.104c0-4.875,3.953-8.828,8.828-8.828h494.345c4.875,0,8.828,3.953,8.828,8.828 L512,200.093L512,200.093z"/><path style="fill:#FFE15A;" d="M503.172,423.725H8.828c-4.875,0-8.828-3.953-8.828-8.828V311.909h512v102.988 C512,419.773,508.047,423.725,503.172,423.725z"/><rect y="200.091" style="fill:#FF4B55;" width="512" height="111.81"/></symbol>
   </svg>
 
   <header class="page-header">
@@ -39,6 +41,9 @@
           <li class="nav__item">
             <a class="nav__link" href="#cd">CD nahrávky</a>
           </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#download">Ke stažení</a>
+          </li>
         </ul>
         <button class="nav__btn" type="button">
           <span class="visually-hidden">Otevřít navigaci</span>
@@ -48,13 +53,13 @@
         <li class="lang__item ">
           <a href="../" class="lang__link">
             <span class="visually-hidden">English</span>
-            <svg class="lang__icon"><use xlink:href="#icon-flag-en"></use></svg>
+            <svg class="lang__icon" width="30" height="30"><use xlink:href="#icon-flag-en"></use></svg>
           </a>
         </li>
         <li class="lang__item ">
           <a href="../de" class="lang__link">
             <span class="visually-hidden">Deutsch</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path style="fill:#464655;" d="M512,200.093H0V97.104c0-4.875,3.953-8.828,8.828-8.828h494.345c4.875,0,8.828,3.953,8.828,8.828 L512,200.093L512,200.093z"/><path style="fill:#FFE15A;" d="M503.172,423.725H8.828c-4.875,0-8.828-3.953-8.828-8.828V311.909h512v102.988 C512,419.773,508.047,423.725,503.172,423.725z"/><rect y="200.091" style="fill:#FF4B55;" width="512" height="111.81"/></svg>
+            <svg class="lang__icon" width="30" height="30"><use xlink:href="#icon-flag-de"></use></svg>
           </a>
         </li>
       </ul>
@@ -65,8 +70,10 @@
 
     <section class="banner">
       <picture class="banner__pic">
-        <source srcset="../img/banner.webp" type="image/webp">
-        <img class="banner__img" src="../img/banner.jpg" width="1920" height="800" alt="Adam Skoumal &copy; Kateřina Hager">
+        <source media="(max-width: 767px)" type="image/webp" srcset="img/banner-mob@1x.webp 1x, img/banner-mob@2x.webp 2x">
+        <source media="(max-width: 767px)" srcset="img/banner-mob@1x.jpg 1x, img/banner-mob@2x.jpg 2x">
+        <source type="image/webp" srcset="img/banner@1x.webp 1x, img/banner@2x.webp 2x">
+        <img class="banner__img" src="img/banner@1x.jpg" srcset="img/banner@2x.jpg 2x" width="1920" height="800" alt="Adam Skoumal &copy; Kateřina Hager">
       </picture>
 
       <div class="banner__title">
@@ -78,9 +85,9 @@
 
     <section class="bio block" id="bio">
       <div class="container">
-        <h2 class="title bio__title block-title">Životopis</h2>
         <div class="bio__body">
           <div class="bio__descr bio__descr--cz">
+            <h2 class="title bio__title block-title">Životopis</h2>
             <p class="bio__text">
               Adama Skoumala zná publikum v Evropě, v USA a v Japonsku jako předního českého klavíristu a skladatele. Sólově vystupoval s většinou českých orchestrů (pod taktovkou například Petra Altrichtera, Serge Bauda, Lukasze Borowitze, Jiřího Kouta, Jakuba Hrůši, Leoše Svárovského, Stanislava Vavřínka, Petra Vronského a Andrease Sebastiana Weisera), se Slovenskou filharmonií, s Bamberskými symfoniky vedenými Jonathanem Nottem a s dalšími evropskými orchestry. V minulých letech se Adam Skoumal představil v cyklech České filharmonie, Symfonického orchestru FOK, Pražské komorní filharmonie, Plzeňské filharmonie, Karlovarského symfonického orchestru, na festivalech Pražské Jaro, Moravský podzim, Janáčkův Máj, Concentus Moraviae, Lípa Musica a podnikl také četná zahraniční vystoupení s orchestrem Národního divadla.
             </p>
@@ -100,19 +107,34 @@
                 S houslistou Milanem Al-Ashhabem úzce spolupracuje již několik let a společně vystupovali na mnoha koncertech doma i v zahraničí. Koncertovali již v New Yorku, ve Vídni a nedávno v komorním cyklu Berlínské filharmonie.
               </p>
             </div>
+            <button class="bio__btn btn" type="button">Rozbalit</button>
           </div>
+          <div class="news">
+              <h2 class="block-title">Aktuality</h2>
+              <ul class="news__list">
+                <li class="news__item">
+                  <time class="news__date" datetime="2019-05-10 19:00">10.5.2019 od 19:00</time>
+                  <p class="news__place">Horažďovice</p>
+                  <p class="news__text">Koncert s Milanem Al&#8209Ashhabem</p>
+                </li>
+                <li class="news__item">
+                  <time class="news__date" datetime="2019-05-29 21:30">29.5.2019 od 21.30</time>
+                  <p class="news__place">Pražské jaro</p>
+                  <p class="news__text">Nocturno, s Milanem Al&#8209Ashhabem</p>
+                </li>
+              </ul>
+            </div>
           <div class="bio__img-wrapper">
             <picture>
-              <source srcset="../img/bio-bg.webp" type="image/webp">
-              <img class="bio__img" src="../img/bio-bg.jpg" width="438" height="491" alt="Adam Skoumal &copy;  Kateřina Hager">
-            </picture>
+                <source data-srcset="img/bio-bg@1x.webp 1x, img/bio-bg@2x.webp 2x" type="image/webp">
+                <img class="bio__img" data-src="img/bio-bg@1x.jpg" data-srcset="img/bio-bg@2x.jpg 2x" width="438" height="491" alt="Adam Skoumal &copy; Kateřina Hager">
+              </picture>
           </div>
         </div>
-        <button class="bio__btn btn" type="button">Rozbalit</button>
       </div>
     </section>
 
-    <section class="video block" id="video">
+    <!-- <section class="video block" id="video">
       <div class="container">
         <h2 class="video__title block-title">Videa a živé nahrávky</h2>
         <div class="video__slider gallery__slider">
@@ -211,9 +233,9 @@
         </div>
         <a class="video-block__btn btn" href="https://www.youtube.com/user/scalsky/videos" target="_blank">Všechna videa</a>
       </div>
-    </section>
+    </section> -->
 
-    <section class="pieces block" id="pieces">
+    <!-- <section class="pieces block" id="pieces">
       <div class="container pieces__container">
         <h2 class="pieces__title block-title">Skladby</h2>
         <ul class="pieces__list pieces__list--printed">
@@ -277,9 +299,9 @@
         </ul>
         <button class="pieces__btn btn" type="button">Další</button>
       </div>
-    </section>
+    </section> -->
 
-    <section class="gallery block" id="gallery">
+    <!-- <section class="gallery block" id="gallery">
       <div class="container gallery__container">
         <h2 class="gallery__title block-title">Fotogalerie</h2>
         <div class="gallery__slider fotogallery-slider">
@@ -466,9 +488,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="cd block" id="cd">
+    <!-- <section class="cd block" id="cd">
       <div class="container">
         <h2 class="cd__title block-title">CD nahrávky</h2>
         <div class="cd__body">
@@ -595,9 +617,9 @@
           </ul>
         </div>
       </div>
-    </section>
+    </section> -->
 
-    <section class="contact" id="contact">
+    <!-- <section class="contact" id="contact">
       <div class="container">
         <h2 class="visually-hidden">Kontakty</h2>
         <p>
@@ -611,7 +633,7 @@
           <a href="mailto:adam.skoumal@seznam.cz">adam.skoumal@seznam.cz</a>
         </p>
       </div>
-    </section>
+    </section> -->
 
   </main>
 
