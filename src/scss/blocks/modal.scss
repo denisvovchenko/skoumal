@@ -1,22 +1,11 @@
-// .modal-open {
-//   position: relative;
-
-//   height: 100%;
-//   overflow: hidden;
-// }
-
 .modal__overlay {
-  &--show {
-    display: flex;
-  }
-
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 10;
 
-  display: none;
+  display: flex;
   width: 100%;
   height: 100%;
 
@@ -31,7 +20,6 @@
   max-width: calc(100vw - 100px);
   max-height: calc(100vh - 100px);
   margin: auto;
-  overflow: auto;
 
   background: #000;
   // border: 5px solid #eee;

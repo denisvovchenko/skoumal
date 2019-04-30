@@ -17,11 +17,10 @@
 .bio__body {
   display: grid;
   grid-template-columns: 60% 1fr;
-  grid-column-gap: 30px;
-  margin-bottom: 25px;
+  grid-template-rows: auto 1fr;
+  grid-gap: 30px;
   overflow: hidden;
 
-  text-align: justify;
 
   @media #{$max-md} {
     grid-template-columns: 1fr;
@@ -30,9 +29,11 @@
   }
 }
 
-.bio__img-wrapper {
+.bio__descr {
+  grid-row: 1 / 3;
+
   @media #{$max-md} {
-    display: none;
+    grid-row: 2;
   }
 }
 
@@ -40,12 +41,28 @@
   &:first-child {
     margin-top: 0;
   }
+
+  text-align: justify;
 }
 
 .bio__add-text {
+  height: 0;
   overflow: hidden;
 
   transition: 0.4s ease-in-out;
+}
+
+.bio__btn {
+  margin-top: 25px;
+}
+
+.bio__img-wrapper {
+  grid-column: 2;
+  grid-row: 2;
+
+  @media #{$max-md} {
+    display: none;
+  }
 }
 
 .bio-popup__block {

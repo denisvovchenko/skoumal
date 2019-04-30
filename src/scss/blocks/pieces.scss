@@ -15,8 +15,23 @@
   font-weight: 700;
 
   color: #000000;
-  background: #ffffff url("../img/pieces-bg.jpg") no-repeat center;
+  background: #ffffff url("../img/pieces-bg@1x.jpg") no-repeat center;
   background-size: cover;
+
+  @media (min-resolution: 144dpi),
+       (min-resolution: 1.5dppx) {
+    background-image: url("../img/pieces-bg@2x.jpg");
+
+  }
+
+  @media (max-width: 767px) {
+    background-image: url("../img/pieces-bg-mob@1x.jpg");
+
+    @media (min-resolution: 144dpi),
+           (min-resolution: 1.5dppx) {
+      background-image: url("../img/pieces-bg-mob@2x.jpg");
+       }
+  }
 }
 
 .pieces__container {
@@ -41,7 +56,7 @@
     grid-auto-flow: column;
   }
 
-  @media #{$max-sm} {
+  @media #{$max-md} {
     grid-template-columns: 1fr;
     margin-bottom: 10px;
   }
