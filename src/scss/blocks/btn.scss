@@ -4,8 +4,6 @@
   &:active {
     color: #000;
     background: #fff;
-
-    transition: 0.2s ease-in-out;
   }
 
   &:not(:last-of-type) {
@@ -34,5 +32,6 @@
   border: none;
   cursor: pointer;
 
-  transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out background,
+              0.2s ease-in-out color;
 }

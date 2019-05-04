@@ -51,7 +51,8 @@
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
     "imagemin-pngquant": "^6.0.0",
-    "posthtml-include": "^1.2.0"
+    "posthtml-include": "^1.2.0",
+    "posthtml-sugar-srcset": "^1.0.1"
   },
   "dependencies": {}
 }

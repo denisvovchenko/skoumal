@@ -34,14 +34,14 @@ function browserSyncReload(done) {
 }
 
 function clean() {
-  return del('!build/img/', 'build/');
+  return del(['build/*', '!build/img']);
 }
 
 function html() {
   return gulp
-    .src('./src/**/*.html')
+    .src('./src/*.html')
     .pipe(posthtml([
-      include()
+      include({encoding: 'utf8'}),
     ]))
     .pipe(gulp.dest('build/'))
     .pipe(browsersync.stream());
@@ -104,10 +104,23 @@ function watchFiles() {
   gulp.watch('src/js/**/*', scripts);
 }
 
+function copyOtherFiles() {
+  return gulp
+    .src(['src/*.ico', 'src/.htaccess-vychozi'])
+    .pipe(gulp.dest('build'));
+}
+
+function fonts() {
+  return gulp
+    .src('src/fonts/*')
+    .pipe(gulp.dest('build/fonts'));
+}
+
 const buildImages = gulp.series(imagesClean, images, createWebp);
-const build = gulp.series(clean, css, scripts, html);
+const build = gulp.series(clean, css, scripts, html, fonts, copyOtherFiles);
 const watch = gulp.parallel(watchFiles, browserSync);
 
+exports.copyOtherFiles = copyOtherFiles;
 exports.images = buildImages;
 exports.clean = clean;
 exports.css = css;
