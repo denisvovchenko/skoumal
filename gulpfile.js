@@ -106,7 +106,7 @@ function watchFiles() {
 
 function copyOtherFiles() {
   return gulp
-    .src(['src/*.ico', 'src/.htaccess-vychozi'])
+    .src(['src/*.ico'])
     .pipe(gulp.dest('build'));
 }
 
