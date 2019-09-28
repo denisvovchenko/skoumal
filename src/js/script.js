@@ -28,10 +28,6 @@ const createElement = (props) => {
   return element;
 }
 
-const getLazyImages = () => {
-  return document.querySelectorAll('[data-src], [data-srcset]');
-}
-
 // Navigation
 {
   const setActiveNavItem = (link, section) => {
@@ -120,8 +116,6 @@ const createPopup = (block) => {
 
   popupWindow.appendChild(popupInner);
   body.appendChild(popupOverlay);
-
-
 }
 
 // remove popup
@@ -436,7 +430,7 @@ const imagePopup = function() {
 
       createPopup(gallery);
 
-      lazy( getLazyImages() );
+      // lazy( getLazyImages() );
     });
   }
 }
@@ -445,69 +439,71 @@ imagePopup();
 
 // Slide toggle bio
 {
-  const relocateParag = () => {
-    let bioDescr = document.querySelector('.bio__descr');
-    let bioDescrAdd = document.querySelector('.bio__add-text');
-    let bioParags = document.querySelectorAll('.bio__text');
+  // const relocateParag = () => {
+  //   let bioDescr = document.querySelector('.bio__descr');
+  //   let bioDescrAdd = document.querySelector('.bio__add-text');
+  //   let bioParags = document.querySelectorAll('.bio__text');
 
-    if (html.clientWidth < 992) {
-      bioDescrAdd.insertBefore(bioParags[1], bioDescrAdd.children[0]);
-    } else {
-      bioDescr.insertBefore(bioParags[1], bioDescrAdd);
-    }
-  }
+  //   if (html.clientWidth < 992) {
+  //     bioDescrAdd.insertBefore(bioParags[1], bioDescrAdd.children[0]);
+  //   } else {
+  //     bioDescr.insertBefore(bioParags[1], bioDescrAdd);
+  //   }
+  // }
 
-  relocateParag();
+  // relocateParag();
 
-  window.onresize = () => {
-    relocateParag();
-  }
+  // window.onresize = () => {
+  //   relocateParag();
+  // }
 
-  let open = false;
-  let heightChecked = false;
-  let initHeight = 0;
+  // let open = false;
+  // let heightChecked = false;
+  // let initHeight = 0;
 
-  const slideToggle = () => {
+  // const slideToggle = () => {
 
-    let bioBtnTextOpen = 'Read more';
-    let bioBtnTextClose = 'Read less';
+  //   let bioBtnTextOpen = 'Read more';
+  //   let bioBtnTextClose = 'Read less';
 
-    if (html.lang == 'cs') {
-      bioBtnTextOpen = 'Rozbalit'
-      bioBtnTextClose = 'Sbalit';
-    }
+  //   if (html.lang == 'cs') {
+  //     bioBtnTextOpen = 'Rozbalit'
+  //     bioBtnTextClose = 'Sbalit';
+  //   }
 
-    if (!open) {
-      bioBtn.textContent = bioBtnTextClose;
-      open = true;
+  //   if (!open) {
+  //     bioBtn.textContent = bioBtnTextClose;
+  //     open = true;
 
-      for (let i = 0; i < bioAddHeight; i++) {
-        bioAdd.style.height = `${i}px`;
-      }
+  //     for (let i = 0; i < bioAddHeight; i++) {
+  //       bioAdd.style.height = `${i}px`;
+  //     }
 
-    } else {
-      bioBtn.textContent = bioBtnTextOpen;
-      open = false;
-      for (let i = bioAddHeight; i >= 0; i--) {
-        bioAdd.style.height = `${i}px`;
-      }
-    }
-  }
+  //   } else {
+  //     bioBtn.textContent = bioBtnTextOpen;
+  //     open = false;
+  //     for (let i = bioAddHeight; i >= 0; i--) {
+  //       bioAdd.style.height = `${i}px`;
+  //     }
+  //   }
+  // }
 
-  let bioBtn = document.querySelector('.bio__btn');
-  let bioAdd = document.querySelector('.bio__add-text');
+  // let bioBtn = document.querySelector('.bio__btn');
+  // let bioAdd = document.querySelector('.bio__add-text');
 
-  let bioAddClone = bioAdd.cloneNode(true);
+  // let bioAddClone = bioAdd.cloneNode(true);
 
-  body.appendChild(bioAddClone);
-  bioAddClone.style.height = 'auto';
-  bioAddClone.style.width = bioAdd.parentElement.offsetWidth + 'px';
-  let bioAddHeight = bioAddClone.offsetHeight;
-  bioAddClone.remove();
+  // body.appendChild(bioAddClone);
+  // bioAddClone.style.height = 'auto';
+  // bioAddClone.style.width = bioAdd.parentElement.offsetWidth + 'px';
+  // let bioAddHeight = bioAddClone.offsetHeight;
+  // bioAddClone.remove();
 
-  bioBtn.addEventListener('click', function() {
-    slideToggle(bioAdd);
-  });
+  // if (bioBtn) {
+  //   bioBtn.addEventListener('click', function() {
+  //     slideToggle(bioAdd);
+  //   });
+  // }
 }
 
 // Popup cd
@@ -601,52 +597,4 @@ imagePopup();
     navList.classList.toggle('nav__list--show');
     langList.classList.toggle('lang__list--show');
   })
-}
-
-// lazy loading
-const lazy = (images) => {
-  images.forEach((img) => {
-    let imgPos = img.getBoundingClientRect();
-
-    if (imgPos.top < html.clientHeight + 200 && imgPos.left < html.clientWidth + 200) {
-
-      if (img.tagName === 'IMG' && img.getAttribute('data-src') != null) {
-        let src = img.getAttribute('data-src');
-        let srcset = img.getAttribute('data-srcset');
-
-        img.setAttribute('src', src);
-        img.removeAttribute('data-src');
-
-        if (srcset) {
-          img.setAttribute('srcset', srcset);
-          img.removeAttribute('data-srcset');
-        }
-
-        if (img.previousElementSibling && img.previousElementSibling.tagName == 'SOURCE') {
-          let source = img.previousElementSibling;
-          let srcset = source.getAttribute('data-srcset');
-          source.setAttribute('srcset', srcset)
-          source.removeAttribute('data-srcset');
-        }
-      }
-    }
-  });
-}
-
-// execute lazy
-{
-  let images = getLazyImages();
-
-  lazy(images);
-
-  window.addEventListener('scroll', (e) => {
-    lazy(images);
-  });
-
-  let controlButtons = document.querySelectorAll('.js-controls__btn');
-  controlButtons.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      lazy(images);
-    });
-  });
 }

@@ -65,13 +65,12 @@ function css() {
 
 function scripts() {
   return gulp
-  .src('src/js/script.js')
+  .src('src/js/**.js')
   .pipe(sourcemaps.init())
   .pipe(babel({
     presets: ['@babel/env']
   }))
   .pipe(uglify())
-  .pipe(rename('script.min.js'))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('build/js/'));
 }
